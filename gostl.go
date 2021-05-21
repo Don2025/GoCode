@@ -37,3 +37,10 @@ func isPrime(n int) bool {
 	}
 	return true
 }
+
+func gcd(a, b int) int {
+	if a%b == 0 {
+		return b
+	}
+	return gcd(b, a%b)
+}
