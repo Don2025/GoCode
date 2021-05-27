@@ -3,16 +3,16 @@ package main
 import "fmt"
 
 type People struct {
-	name string
-	age int
-	live bool
-	website string
-	motto string
+	name       string
+	age        int
+	live       bool
+	website    string
+	motto      string
 	girlfriend *People
 }
 
 func main() {
-	TYD := People{"谭尧丹",21,true,"https://tanyaodan.com","You only live once",nil}
+	TYD := People{"谭尧丹", 21, true, "https://tanyaodan.com", "You only live once", nil}
 	printPeople(TYD)
 	TYD.girlfriend = nil
 	var LWK People
