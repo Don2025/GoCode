@@ -44,3 +44,11 @@ func gcd(a, b int) int {
 	}
 	return gcd(b, a%b)
 }
+
+func reverse(s string) string {
+	var a []rune
+	for i := len(s) - 1; i >= 0; i-- {
+		a = append(a, rune(s[i]))
+	}
+	return string(a)
+}
