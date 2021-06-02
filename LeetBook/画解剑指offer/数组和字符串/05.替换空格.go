@@ -1,5 +1,11 @@
-package LeetBook
+package main
 
+import (
+	"bufio"
+	"os"
+)
+
+//请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
 func replaceSpace(s string) string {
 	str := make([]rune, 0)
 	for _, it := range s {
@@ -10,6 +16,19 @@ func replaceSpace(s string) string {
 		}
 	}
 	return string(str)
+}
+
+/* 一种不要脸的简洁写法
+func replaceSpace(s string) string {
+	return strings.ReplaceAll(s, " ", "%20")
+}
+*/
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		println(replaceSpace(input.Text()))
+	}
 }
 
 /*
