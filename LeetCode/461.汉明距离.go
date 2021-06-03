@@ -1,4 +1,6 @@
-package LeetCode
+package main
+
+import "fmt"
 
 func hammingDistance(x int, y int) int {
 	t, sum := x^y, 0
@@ -7,6 +9,12 @@ func hammingDistance(x int, y int) int {
 		t >>= 1
 	}
 	return sum
+}
+
+func main() {
+	var x, y int
+	fmt.Scanf("%d %d", &x, &y)
+	println(hammingDistance(x, y))
 }
 
 /*

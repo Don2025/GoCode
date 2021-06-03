@@ -1,6 +1,12 @@
-package LeetCode
+package main
 
-import "sort"
+import (
+	"bufio"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
 
 func findContentChildren(g []int, s []int) int {
 	var ans, idx int
@@ -16,6 +22,25 @@ func findContentChildren(g []int, s []int) int {
 		}
 	}
 	return ans
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		g := stringArrayToIntArray(strings.Fields(input.Text()))
+		input.Scan()
+		s := stringArrayToIntArray(strings.Fields(input.Text()))
+		println(findContentChildren(g, s))
+	}
+}
+
+func stringArrayToIntArray(strings []string) []int {
+	var arr []int
+	for _, x := range strings {
+		n, _ := strconv.Atoi(x)
+		arr = append(arr, n)
+	}
+	return arr
 }
 
 /*

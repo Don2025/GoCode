@@ -1,6 +1,13 @@
-package LeetCode
+package main
 
-import "sort"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
 
 func topKFrequent(words []string, k int) []string {
 	cnt := map[string]int{}
@@ -16,6 +23,20 @@ func topKFrequent(words []string, k int) []string {
 		return cnt[s] > cnt[t] || cnt[s] == cnt[t] && s < t
 	})
 	return uniqueWords[:k]
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		strArr := strings.Fields(input.Text())
+		input.Scan()
+		k, _ := strconv.Atoi(input.Text())
+		ansArr := topKFrequent(strArr, k)
+		for _, x := range ansArr {
+			fmt.Printf("%s ", x)
+		}
+		println()
+	}
 }
 
 /*

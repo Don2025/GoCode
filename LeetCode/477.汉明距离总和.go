@@ -1,4 +1,11 @@
-package LeetCode
+package main
+
+import (
+	"bufio"
+	"os"
+	"strconv"
+	"strings"
+)
 
 func totalHammingDistance(nums []int) int {
 	ans, n := 0, len(nums)
@@ -10,6 +17,23 @@ func totalHammingDistance(nums []int) int {
 		ans += t * (n - t)
 	}
 	return ans
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		a := stringArrayToIntArray(strings.Fields(input.Text()))
+		println(totalHammingDistance(a))
+	}
+}
+
+func stringArrayToIntArray(strings []string) []int {
+	var arr []int
+	for _, x := range strings {
+		n, _ := strconv.Atoi(x)
+		arr = append(arr, n)
+	}
+	return arr
 }
 
 /*

@@ -1,4 +1,11 @@
-package LeetCode
+package main
+
+import (
+	"bufio"
+	"os"
+	"strconv"
+	"strings"
+)
 
 func xorGame(nums []int) bool {
 	var flag, n = 0, len(nums)
@@ -9,6 +16,23 @@ func xorGame(nums []int) bool {
 		return true
 	}
 	return false
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		a := stringArrayToIntArray(strings.Fields(input.Text()))
+		println(xorGame(a))
+	}
+}
+
+func stringArrayToIntArray(strings []string) []int {
+	var arr []int
+	for _, x := range strings {
+		n, _ := strconv.Atoi(x)
+		arr = append(arr, n)
+	}
+	return arr
 }
 
 /*

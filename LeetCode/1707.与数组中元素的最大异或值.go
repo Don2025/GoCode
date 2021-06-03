@@ -1,6 +1,13 @@
-package LeetCode
+package main
 
-import "sort"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
 
 const L = 30
 
@@ -56,6 +63,34 @@ func (t *trieNode) getMaxXor(val int) (ans int) {
 		node = node.children[bit]
 	}
 	return
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		nums := stringArrayToIntArray(strings.Fields(input.Text()))
+		input.Scan()
+		n, _ := strconv.Atoi(input.Text())
+		queries := make([][]int, n)
+		for i := 0; i < n; i++ {
+			input.Scan()
+			queries[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+		}
+		ans := maximizeXor(nums, queries)
+		for _, x := range ans {
+			fmt.Printf("%d ", x)
+		}
+		println()
+	}
+}
+
+func stringArrayToIntArray(strings []string) []int {
+	var arr []int
+	for _, x := range strings {
+		n, _ := strconv.Atoi(x)
+		arr = append(arr, n)
+	}
+	return arr
 }
 
 /*

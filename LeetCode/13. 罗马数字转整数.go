@@ -1,4 +1,9 @@
-package LeetCode
+package main
+
+import (
+	"bufio"
+	"os"
+)
 
 var dic = map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 
@@ -13,6 +18,13 @@ func romanToInt(s string) (ans int) {
 		}
 	}
 	return ans
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		println(romanToInt(input.Text()))
+	}
 }
 
 /*

@@ -1,4 +1,6 @@
-package LeetCode
+package main
+
+import "fmt"
 
 func isPowerOfFour(n int) bool {
 	if n < 4 {
@@ -7,6 +9,15 @@ func isPowerOfFour(n int) bool {
 		return isPowerOfFour(n / 4)
 	} else {
 		return false
+	}
+}
+
+func main() {
+	var n int
+	for {
+		print("n = ")
+		fmt.Scan(&n)
+		println(isPowerOfFour(n))
 	}
 }
 

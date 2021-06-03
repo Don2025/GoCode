@@ -1,6 +1,12 @@
-package LeetCode
+package main
 
-import "sort"
+import (
+	"bufio"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
 
 func kthLargestValue(matrix [][]int, k int) int {
 	n, m := len(matrix), len(matrix[0])
@@ -16,6 +22,30 @@ func kthLargestValue(matrix [][]int, k int) int {
 	}
 	sort.Sort(sort.Reverse(sort.IntSlice(location)))
 	return location[k-1]
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		n, _ := strconv.Atoi(input.Text())
+		matrix := make([][]int, n)
+		for i := 0; i < n; i++ {
+			input.Scan()
+			matrix[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+		}
+		input.Scan()
+		k, _ := strconv.Atoi(input.Text())
+		println(kthLargestValue(matrix, k))
+	}
+}
+
+func stringArrayToIntArray(strings []string) []int {
+	var arr []int
+	for _, x := range strings {
+		n, _ := strconv.Atoi(x)
+		arr = append(arr, n)
+	}
+	return arr
 }
 
 /*
