@@ -6,21 +6,21 @@ import (
 )
 
 func main() {
-	mp := make(map[int]int)
+	m := make(map[int]int)
 	var n, x, y int
 	var a []int
-	fmt.Scanf("%d", &n)
+	fmt.Scan(&n)
 	for i := 0; i < n; i++ {
 		fmt.Scanf("%d %d", &x, &y)
-		if mp[x] == 0 {
+		if m[x] == 0 {
 			a = append(a, x)
 		}
-		mp[x] += y
+		m[x] += y
 	}
 	sort.Ints(a)
-	for _, x := range a {
-		if mp[x] != 0 {
-			fmt.Printf("%d %d\n", x, mp[x])
+	for _, x = range a {
+		if m[x] != 0 {
+			fmt.Printf("%d %d\n", x, m[x])
 		}
 	}
 }
