@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+//Go里面没有stack，所以没有用两个栈来模拟，直接用container/list来做的
 type CQueue struct {
 	list *list.List
 }
@@ -49,7 +50,7 @@ func main() {
 				ans = append(ans, "null")
 			} else if str == "appendTail" {
 				var value int
-				print("input a  value:")
+				print("input a value:")
 				fmt.Scanf("%d", &value)
 				queue.AppendTail(value)
 				ans = append(ans, "null")
