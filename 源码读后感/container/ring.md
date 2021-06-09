@@ -259,7 +259,6 @@ func main() {
         if cnt == k {
             r.Value.(*Player).alive = false
             if virgin {
-                r.Value.(*Player).alive = false
                 fmt.Printf("%d", r.Value.(*Player).position)
                 virgin = false
             } else {
