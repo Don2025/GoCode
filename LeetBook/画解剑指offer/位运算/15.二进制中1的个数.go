@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func hammingWeight(num uint32) int {
 	var cnt int
 	for num != 0 {
@@ -9,14 +7,6 @@ func hammingWeight(num uint32) int {
 		num >>= 1
 	}
 	return cnt
-}
-
-func main() {
-	for {
-		var num uint32
-		fmt.Scan(&num)
-		fmt.Println(hammingWeight(num))
-	}
 }
 
 /*
