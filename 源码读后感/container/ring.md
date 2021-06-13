@@ -307,3 +307,20 @@ func main() {
 }
 ```
 
+以上只是模拟约瑟夫环来了解ring在什么地方能够使用到，在实际写这种约瑟夫环问题的时候是肯定不能用模拟的方法来写的因为会超时，一般采用动态规划来进行求解。比如这道类似约瑟夫环的问题 [剑指Offer 62. 圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/) ，大佬四行搞定。
+
+```go
+func lastRemaining(n, m int) int {
+    var ans int
+    for i := 2; i <= n; i++ {
+        ans = (ans+m)%i
+    }
+    return ans
+}
+/* 作者：veitor
+ * 链接：https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/solution/chang-ren-si-kao-fang-shi-kan-kan-shi-fo-w21c/
+ * 来源：力扣（LeetCode）
+ * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+**/
+```
+
