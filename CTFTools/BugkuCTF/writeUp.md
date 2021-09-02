@@ -186,3 +186,48 @@ func main() {
 最后可以得到`flag{DajiDali_JinwanChiji}`。
 
 ------
+
+#### 18.[想蹭网先解开密码](https://www.amanctf.com/challenges/detail/id/18.html)
+
+Kali-Linux环境下使用命令 `crunch 11 11 -t 1391040%%%% >> bugku18.txt`创建密码字典。
+
+![](https://paper.tanyaodan.com/amanctf/18/1.png)
+
+使用命令 `aircrack-ng -w bugku18.txt wifi.cap`进行爆破，输入数字`3`，即可拿到手机号码`13910407686`，由题意可知`flag`是`flag{13910407686}`。
+
+![](https://paper.tanyaodan.com/amanctf/18/2.png)
+
+------
+
+#### 19.[Linux2](https://www.amanctf.com/challenges/detail/id/19.html)
+
+解压缩后用`WinHex`打开这个`brave`文件，搜索`KEY`即可找到`KEY{24f3627a86fc740a7f36ee2c7a1c124a}`。
+
+------
+
+#### 20.[细心的大象](https://www.amanctf.com/challenges/detail/id/20.html)
+
+图片`1.jpg`的属性中备注了一串字符串，直接当密码输入不对。
+
+![](https://paper.tanyaodan.com/amanctf/20/1.png)
+
+```go
+package main
+
+import (
+	"encoding/base64"
+)
+
+func main() {
+	pwd, _ := base64.StdEncoding.DecodeString("TVNEUzQ1NkFTRDEyM3p6")
+	println(string(pwd))
+}
+```
+
+`base64`解码后拿到`.rar`压缩包的密码`MSDS456ASD123zz`，解压缩后拿到另一张图片`2.jpg`。
+
+用`tweakpng`打开图片后，修改图片高度即可看到`BUGKU{a1e5aSA}`。
+
+![](https://paper.tanyaodan.com/amanctf/20/2.png)
+
+------
