@@ -38,7 +38,25 @@
 
 #### 6.[啊哒](https://www.amanctf.com/challenges/detail/id/6.html)
 
-查看图片属性可以找到相机型号`73646E6973635F32303138`，将后缀改为`.rar`可以看到压缩包中有`flag.txt`，提取需要输入解压密码，直接输入相机型号不对，16进制转字符串得到解压密码`sdnisc_2018`，解压后打开`flag.txt`看到`flag{3XiF_iNf0rM@ti0n}`。
+查看图片属性可以找到相机型号`73646E6973635F32303138`，将后缀改为`.rar`可以看到压缩包中有`flag.txt`，提取需要输入解压密码，直接输入相机型号不对，仔细观察发现这一串是16进制字符串。
+
+```go
+package main
+
+import "encoding/hex"
+
+// hexToStr converts Hex code to text string.
+func hexToStr(num string) string {
+    str, _ := hex.DecodeString(num)
+    return string(str)
+}
+
+func main() {
+    println(hexToStr("73646E6973635F32303138"))
+}
+```
+
+16进制转字符串得到解压密码`sdnisc_2018`，解压后打开`flag.txt`看到`flag{3XiF_iNf0rM@ti0n}`。
 
 ![](https://paper.tanyaodan.com/amanctf/6/1.png)
 
