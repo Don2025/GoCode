@@ -2,7 +2,10 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 // ListNode is Definition for singly-linked list.
@@ -48,6 +51,38 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
-
+		head := intArrayToLinkList(stringArrayToIntArray(strings.Fields(input.Text())))
+		input.Scan()
+		k, _ := strconv.Atoi(input.Text())
+		printLinkedList(getKthFromEnd(head, k))
 	}
+}
+
+func stringArrayToIntArray(strings []string) []int {
+	var arr []int
+	for _, x := range strings {
+		n, _ := strconv.Atoi(x)
+		arr = append(arr, n)
+	}
+	return arr
+}
+
+func intArrayToLinkList(arr []int) *ListNode {
+	var head *ListNode = new(ListNode)
+	p := head
+	for _, x := range arr {
+		p.Next = &ListNode{Val: x}
+		p = p.Next
+	}
+	return head.Next
+}
+
+func printLinkedList(head *ListNode) {
+	for p := head; p != nil; p = p.Next {
+		if p != head {
+			fmt.Printf("->")
+		}
+		fmt.Printf("%d", p.Val)
+	}
+	println()
 }
