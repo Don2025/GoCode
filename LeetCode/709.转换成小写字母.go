@@ -15,6 +15,11 @@ func toLowerCase(s string) string {
 	return string(ans)
 }
 
+/* 大写变小写 小写变大写 c ^= 32
+ * 大小写都变小写 c |= 32
+ * 大小写都变大写 c &= -33
+ */
+
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
