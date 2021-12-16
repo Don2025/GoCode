@@ -17,7 +17,7 @@ import (
 func firstBadVersion(n int) int {
 	l, r := 1, n
 	for l < r {
-		mid := l + (r-l)/2
+		mid := l + (r-l)>>1
 		if isBadVersion(mid) {
 			r = mid
 		} else {
