@@ -1,5 +1,12 @@
 package main
 
+import (
+	"bufio"
+	"os"
+	"strconv"
+	"strings"
+)
+
 func findJudge(n int, trust [][]int) int {
 	type people struct{ Out, In int }
 	p := make([]people, n)
@@ -13,6 +20,19 @@ func findJudge(n int, trust [][]int) int {
 		}
 	}
 	return -1
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		n, _ := strconv.Atoi(input.Text())
+		trust := make([][]int, n)
+		for i := 0; i < n; i++ {
+			input.Scan()
+			trust[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+		}
+		println(findJudge(n, trust))
+	}
 }
 
 /*
