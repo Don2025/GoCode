@@ -1,8 +1,11 @@
 The library is under reconstruction, that is not only made the code more testable, but also improved the code quality in general and promoted code reuse in the refactored code sections.
 
-该库正在重建中，这不仅使代码更易于测试，而且总体上提高了代码质量，并促进了重构代码部分的代码重用。
+As you can see, refactored code such as [**19.remove-nth-node-from-end-of-list.go**](https://github.com/Don2025/GoCode/blob/master/LeetCode/problems/19.remove-nth-node-from-end-of-list.go)：
 
-重构完的代码例如：
+- Function `Test19()` called to use Leetcode official example testcases, which eliminates manual input of test cases in local debugging.
+- If output is not expected, which means the test case fails, this line `panic(errors.New(err))` will executed, so the program panic directly.
+- You also can use some customize test case from the standard input.
+- These code is needs to be submitted to Leetcode, which between `//------------------------Leetcode Problem 19------------------------` the two notes.
 
 ```go
 package main
@@ -19,7 +22,7 @@ import (
 )
 
 type ListNode = structures.ListNode
-
+// ------------------------Leetcode Problem 19------------------------
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -40,7 +43,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	slow.Next = slow.Next.Next
 	return dummy.Next
 }
-
+//------------------------Leetcode Problem 19------------------------
 /*
  * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
@@ -106,6 +109,4 @@ func Test19(t *testing.T) {
 	}
 	fmt.Println("You can input some customize test case right now.")
 }
-
 ```
-
