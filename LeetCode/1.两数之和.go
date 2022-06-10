@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func twoSum(nums []int, target int) []int {
@@ -20,26 +20,13 @@ func twoSum(nums []int, target int) []int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		target, _ := strconv.Atoi(input.Text())
-		ans := twoSum(nums, target)
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		target, _ := strconv.Atoi(scanner.Text())
+		fmt.Printf("%v\n", twoSum(nums, target))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

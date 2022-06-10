@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
-	"strconv"
 	"strings"
 )
 
@@ -28,19 +28,10 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
-		nums1 := stringArrayToIntArray(strings.Fields(input.Text()))
+		nums1 := utils.StringArrayToIntArray(strings.Fields(input.Text()))
 		nums2 := stringArrayToIntArray(strings.Fields(input.Text()))
 		println(findMedianSortedArrays(nums1, nums2))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

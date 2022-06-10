@@ -3,15 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
 	"strings"
 )
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	head := &ListNode{}
@@ -38,9 +34,9 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
-		l1 := intArrayToLinkList(stringArrayToIntArray(strings.Fields(input.Text())))
+		l1 := utils.IntArrayToLinkList(stringArrayToIntArray(strings.Fields(input.Text())))
 		input.Scan()
-		l2 := intArrayToLinkList(stringArrayToIntArray(strings.Fields(input.Text())))
+		l2 := utils.IntArrayToLinkList(stringArrayToIntArray(strings.Fields(input.Text())))
 		ans := mergeTwoLists(l1, l2)
 		printLinkedList(ans)
 	}
