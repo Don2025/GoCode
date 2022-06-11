@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-// https://leetcode.cn/problems/M99OJA
+// https://leetcode.cn/problems/M99OJA/
 // ------------------------剑指 Offer II Problem 86------------------------
 func partition(s string) (ans [][]string) {
 	n := len(s)
@@ -43,7 +43,7 @@ func partition(s string) (ans [][]string) {
 
 // ------------------------剑指 Offer II Problem 86------------------------
 /*
- * https://leetcode.cn/problems/M99OJA
+ * https://leetcode.cn/problems/M99OJA/
  * 执行用时：284ms 在所有Go提交中击败了11.18%的用户
  * 占用内存：22MB 在所有Go提交中击败了96.27%的用户
 **/
