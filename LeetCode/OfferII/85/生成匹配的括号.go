@@ -40,7 +40,6 @@ func generateParenthesis(n int) (ans []string) {
  * 占用内存：2.6MB 在所有Go提交中击败了93.89%的用户
 **/
 func main() {
-	// You can  use Example Testcases
 	scanner := bufio.NewScanner(os.Stdin)
 	Printf("Input a number between 1 and 8:")
 	for scanner.Scan() {
