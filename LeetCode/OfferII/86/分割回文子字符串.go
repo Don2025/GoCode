@@ -49,7 +49,9 @@ func partition(s string) (ans [][]string) {
 **/
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
+	Printf("Input a line of string:")
 	for scanner.Scan() {
-		Printf("%v\n", partition(scanner.Text()))
+		Printf("Output: %v\n", partition(scanner.Text()))
+		Printf("Input a line of string:")
 	}
 }

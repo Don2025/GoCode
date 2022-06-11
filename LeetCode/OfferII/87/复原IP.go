@@ -57,7 +57,9 @@ func restoreIpAddresses(s string) (ans []string) {
 **/
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
+	Printf("Input a line of string:")
 	for scanner.Scan() {
-		Printf("%v\n", restoreIpAddresses(scanner.Text()))
+		Printf("Output: %v\n", restoreIpAddresses(scanner.Text()))
+		Printf("Input a line of string:")
 	}
 }

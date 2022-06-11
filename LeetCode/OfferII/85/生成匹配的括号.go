@@ -45,6 +45,6 @@ func main() {
 	for scanner.Scan() {
 		n, _ := strconv.Atoi(scanner.Text())
 		Printf("Output: %v\n", generateParenthesis(n))
-		Printf("Input a number:")
+		Printf("Input a number between 1 and 8:")
 	}
 }
