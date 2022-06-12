@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-// https://leetcode.cn/problems/2bCMpM/
+// https://leetcode.cn/problems/cuyjEf/
 // ------------------------剑指 Offer II Problem 71------------------------
 
 type Solution struct {
@@ -32,7 +32,7 @@ func (s *Solution) PickIndex() int {
 
 // ------------------------剑指 Offer II Problem 71------------------------
 /*
- * https://leetcode.cn/problems/2bCMpM/
+ * https://leetcode.cn/problems/cuyjEf/
  * 执行用时：40ms 在所有Go提交中击败了98.97%的用户
  * 占用内存：7MB 在所有Go提交中击败了98.97%的用户
 **/
