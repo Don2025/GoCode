@@ -5,7 +5,7 @@ As you can see, refactored code such as [**remove-nth-node-from-end-of-list.go**
 - You can`cd ./LeetCode/problems/19` and then use `go test` to testify program.
 - Function `Test19()` called to use Leetcode official example testcases, which eliminates manual input of test cases in local debugging.
 
-- If output is not expected, which means the test case fails, this line `t.Errorf(err)` will executed, so the program panic directly.
+- If output is not expected, which means the test case fails, this line `t.Errorf(err)` will executed.
 - You also can use some customize test case from the standard input. ( I assume that all inputs are legal, when I wrote code.)
 - These code is needs to be submitted to Leetcode, which between `//------------------------Leetcode Problem 19------------------------` the two notes.
 
