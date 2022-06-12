@@ -72,5 +72,6 @@ func main() {
 			grid[i] = utils.StringToInts(scanner.Text())
 		}
 		Printf("Output: %v\n", updateMatrix(grid))
+		Printf("Input the number of rows of matrix:")
 	}
 }
