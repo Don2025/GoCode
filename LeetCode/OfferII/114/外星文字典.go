@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/Jf1JuT/
+// ------------------------剑指 Offer II Problem 114------------------------
 func alienOrder(words []string) string {
 	g := make(map[byte][]byte)
 	for _, x := range words[0] {
@@ -56,15 +59,18 @@ next:
 	return string(order)
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		words := strings.Fields(input.Text())
-		println(alienOrder(words))
-	}
-}
-
+// ------------------------剑指 Offer II Problem 114------------------------
 /*
+ * https://leetcode.cn/problems/Jf1JuT/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.2MB 在所有Go提交中击败了34.61%的用户
 **/
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	Printf("Input a line of strings separated by space:")
+	for input.Scan() {
+		words := strings.Fields(input.Text())
+		Printf("Output: %v\n", alienOrder(words))
+		Printf("Input a line of strings separated by space:")
+	}
+}
