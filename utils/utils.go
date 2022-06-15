@@ -52,6 +52,19 @@ func IntsToString(nums []int) string {
 	return sb.String()
 }
 
+// StringToFloat64s converts string to []float64.
+func StringToFloat64s(str string) (nums []float64) {
+	if len(str) == 0 {
+		return
+	}
+	strs := strings.Fields(str)
+	for _, ch := range strs {
+		n, _ := strconv.ParseFloat(ch, 64)
+		nums = append(nums, n)
+	}
+	return
+}
+
 // StringToLinkList converts string to *ListNode.
 func StringToLinkList(str string) *structures.ListNode {
 	if len(str) == 0 {

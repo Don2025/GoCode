@@ -63,13 +63,13 @@ next:
 /*
  * https://leetcode.cn/problems/Jf1JuT/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：2.2MB 在所有Go提交中击败了34.61%的用户
+ * 占用内存：2.2MB 在所有Go提交中击败了58.61%的用户
 **/
 func main() {
-	input := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(os.Stdin)
 	Printf("Input a line of strings separated by space:")
-	for input.Scan() {
-		words := strings.Fields(input.Text())
+	for scanner.Scan() {
+		words := strings.Fields(scanner.Text())
 		Printf("Output: %v\n", alienOrder(words))
 		Printf("Input a line of strings separated by space:")
 	}
