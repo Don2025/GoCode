@@ -2,15 +2,15 @@ package main
 
 import (
 	"bufio"
-	"errors"
-	"fmt"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"testing"
 )
 
+// https://leetcode.cn/problems/4sum/
+//------------------------Leetcode Problem 19------------------------
 func fourSum(nums []int, target int) [][]int {
 	sort.Ints(nums)
 	n := len(nums)
@@ -41,6 +41,7 @@ func fourSum(nums []int, target int) [][]int {
 	return quadruplets
 }
 
+//------------------------Leetcode Problem 19------------------------
 /*
  * https://leetcode.cn/problems/4sum/
  * 执行用时：4ms 在所有Go提交中击败了95.56%的用户
@@ -48,53 +49,14 @@ func fourSum(nums []int, target int) [][]int {
 **/
 
 func main() {
-	var t *testing.T = &testing.T{}
-	Test18(t) // Use Example Testcases
 	scanner := bufio.NewScanner(os.Stdin)
+	Printf("Input a line of numbers separated by space:")
 	for scanner.Scan() {
 		nums := utils.StringToInts(scanner.Text())
+		Printf("Input a number:")
 		scanner.Scan()
 		target, _ := strconv.Atoi(scanner.Text())
-		fmt.Printf("%v\n", fourSum(nums, target))
+		Printf("%v\n", fourSum(nums, target))
+		Printf("Input a line of numbers separated by space:")
 	}
-}
-
-type ques18 struct {
-	argv18
-	ans18 [][]int
-}
-
-type argv18 struct {
-	one []int
-	two int
-}
-
-func Test18(t *testing.T) {
-	examples := []ques18{
-		{
-			argv18{[]int{1, 0, -1, 0, -2, 2}, 0},
-			[][]int{{-2, -1, 1, 2}, {-2, 0, 0, 2}, {-1, 0, 0, 1}},
-		},
-		{
-			argv18{[]int{2, 2, 2, 2, 2}, 8},
-			[][]int{{2, 2, 2, 2}},
-		},
-	}
-	fmt.Println("------------------------Leetcode Problem 18------------------------")
-	for i, exam := range examples {
-		input, expected := exam.argv18, exam.ans18
-		fmt.Printf("Example %d:\n", i+1)
-		fmt.Printf("Input: nums = %v, target = %d\n", input.one, input.two)
-		output := fourSum(input.one, input.two)
-		fmt.Printf("Output: %v\n", output)
-		fmt.Printf("Expected: %v\n", expected)
-		if fmt.Sprintf("%v", output) == fmt.Sprintf("%v", expected) {
-			fmt.Printf("There's not much of a difference.\n")
-			fmt.Println("-------------------------------------------------------------------")
-		} else {
-			err := fmt.Sprintf("Example %d went wrong!\n", i+1)
-			panic(errors.New(err))
-		}
-	}
-	fmt.Println("You can input some customize test case right now.")
 }
