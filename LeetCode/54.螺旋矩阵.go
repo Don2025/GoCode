@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func spiralOrder(matrix [][]int) []int {
@@ -45,26 +45,17 @@ func spiralOrder(matrix [][]int) []int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		matrix := make([][]int, n)
 		for i := range matrix {
-			input.Scan()
-			matrix[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			matrix[i] = utils.StringToInts(scanner.Text())
 		}
 		ans := spiralOrder(matrix)
 		fmt.Printf("%v\n", ans)
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

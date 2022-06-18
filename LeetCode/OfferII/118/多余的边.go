@@ -9,7 +9,7 @@ import (
 )
 
 // https://leetcode.cn/problems/7LpjUW/
-// ------------------------剑指 Offer II Problem 118------------------------
+// ------------------------剑指 Offer II Problem 15------------------------
 func findRedundantConnection(edges [][]int) []int {
 	parent := make([]int, len(edges)+1)
 	for i := range parent {

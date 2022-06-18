@@ -2,10 +2,10 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func twoSum(numbers []int, target int) []int {
@@ -26,24 +26,11 @@ func twoSum(numbers []int, target int) []int {
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
+		nums := utils.StringToInts(input.Text())
 		input.Scan()
 		target, _ := strconv.Atoi(input.Text())
-		ans := twoSum(nums, target)
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+		Printf("Output: %v\n", twoSum(nums, target))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

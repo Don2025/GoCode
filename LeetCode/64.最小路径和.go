@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
 	"strings"
@@ -34,25 +35,16 @@ func min(a, b int) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		grid := make([][]int, n)
 		for i := range grid {
-			input.Scan()
-			grid[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			grid[i] = utils.StringToInts(scanner.Text()))
 		}
 		println(minPathSum(grid))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

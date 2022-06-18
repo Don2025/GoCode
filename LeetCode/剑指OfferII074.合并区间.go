@@ -2,19 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/SsGoHC/
 func merge(intervals [][]int) [][]int {
-	var ans [][]int
-	if len(intervals) == 0 {
-		return ans
-	}
-	sort.Ints(intervals)
 
 }
 
@@ -25,12 +20,8 @@ func main() {
 		intervals := make([][]int, n)
 		for i := range intervals {
 			input.Scan()
-			intervals[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			intervals[i] = utils.StringToInts(input.Text())
 		}
-		ans := merge(intervals)
-		for _, row := range ans {
-			fmt.Printf("%v ", row)
-		}
-		fmt.Println()
+		Printf("Output: %v\n", merge(intervals))
 	}
 }

@@ -32,11 +32,11 @@ func combine(n int, k int) [][]int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
 		ans := combine(n, k)
 		for _, x := range ans {
 			fmt.Printf("%d ", x)

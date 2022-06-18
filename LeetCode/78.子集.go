@@ -3,9 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func subsets(nums []int) [][]int {
@@ -24,24 +23,11 @@ func subsets(nums []int) [][]int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		ans := subsets(nums)
-		for _, x := range ans {
-			fmt.Printf("%v ", x)
-		}
-		fmt.Println()
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		fmt.Printf("%v\n", subsets(nums))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

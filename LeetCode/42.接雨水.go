@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func trap(height []int) int {
@@ -39,20 +39,11 @@ func min(a, b int) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		height := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(trap(height))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		height := utils.StringToInts(scanner.Text())
+		Println(trap(height))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

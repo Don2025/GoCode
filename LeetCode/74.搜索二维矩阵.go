@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
 	"strings"
@@ -27,27 +28,18 @@ func searchMatrix(matrix [][]int, target int) bool {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		matrix := make([][]int, n)
 		for i := range matrix {
-			input.Scan()
-			matrix[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			matrix[i] = utils.StringToInts(scanner.Text()))
 		}
-		input.Scan()
-		target, _ := strconv.Atoi(input.Text())
+		scanner.Scan()
+		target, _ := strconv.Atoi(scanner.Text())
 		println(searchMatrix(matrix, target))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

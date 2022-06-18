@@ -2,10 +2,10 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"math"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func maxProfit(prices []int) int {
@@ -33,20 +33,11 @@ func max(a, b int) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		prices := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(maxProfit(prices))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		prices := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", maxProfit(prices))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

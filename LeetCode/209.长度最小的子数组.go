@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func minSubArrayLen(target int, nums []int) int {
@@ -32,22 +32,13 @@ func min(a, b int) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		target, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		target, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		nums := utils.StringToInts(scanner.Text())
 		println(minSubArrayLen(target, nums))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

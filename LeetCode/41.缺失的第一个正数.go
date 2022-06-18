@@ -2,9 +2,8 @@ package main
 
 import (
 	"bufio"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func firstMissingPositive(nums []int) int {
@@ -26,19 +25,10 @@ func adjust(nums []int, i int) {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(firstMissingPositive(stringArrayToIntArray(strings.Fields(input.Text()))))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		println(firstMissingPositive(utils.StringToInts(scanner.Text())))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

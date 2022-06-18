@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func plusOne(digits []int) []int {
@@ -21,19 +21,11 @@ func plusOne(digits []int) []int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(stringArrayToIntArray(strings.Fields(input.Text())))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		digit := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", plusOne(digit))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

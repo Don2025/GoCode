@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 )
@@ -33,10 +34,10 @@ func isMatch(s string, p string) bool {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := strings.Fields(input.Text())
-		println(isMatch(arr[0], arr[1]))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		arr := strings.Fields(scanner.Text())
+		Println(isMatch(arr[0], arr[1]))
 	}
 }
 

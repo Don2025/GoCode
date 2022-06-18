@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func maxPoints(points [][]int) int {
@@ -34,25 +34,16 @@ func max(a, b int) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		points := make([][]int, n)
 		for i := 0; i < n; i++ {
-			input.Scan()
-			points[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			points[i] = utils.StringToInts(scanner.Text())
 		}
 		println(maxPoints(points))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

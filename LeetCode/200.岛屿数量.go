@@ -42,13 +42,13 @@ func numIslands(grid [][]byte) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		grid := make([][]byte, n)
 		for i := 0; i < n; i++ {
-			input.Scan()
-			grid[i] = []byte(input.Text())
+			scanner.Scan()
+			grid[i] = []byte(scanner.Text())
 		}
 		println(numIslands(grid))
 	}

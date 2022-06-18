@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"os"
-	"strconv"
 	"strings"
 )
 
@@ -26,15 +25,6 @@ func main() {
 	for input.Scan() {
 		nums := stringArrayToIntArray(strings.Fields(input.Text()))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

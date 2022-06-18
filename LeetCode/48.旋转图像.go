@@ -2,10 +2,10 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func rotate(matrix [][]int) {
@@ -21,34 +21,16 @@ func rotate(matrix [][]int) {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		matrix := make([][]int, n)
 		for i := range matrix {
-			input.Scan()
-			matrix[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			matrix[i] = utils.StringToInts(scanner.Text())
 		}
 		rotate(matrix)
-		printMatrix(matrix)
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
-func printMatrix(matrix [][]int) {
-	for _, row := range matrix {
-		for _, x := range row {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+		Printf("%v\n", matrix)
 	}
 }
 

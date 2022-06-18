@@ -2,16 +2,12 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+type ListNode = structures.ListNode
 
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode
@@ -26,40 +22,11 @@ func reverseList(head *ListNode) *ListNode {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		head := intArrayToLinkList(stringArrayToIntArray(strings.Fields(input.Text())))
-		printLinkedList(reverseList(head))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		head := utils.StringToLinkList(scanner.Text())
+		utils.PrintLinkedList(reverseList(head))
 	}
-}
-
-func intArrayToLinkList(arr []int) *ListNode {
-	var head *ListNode = new(ListNode)
-	p := head
-	for _, x := range arr {
-		p.Next = &ListNode{Val: x}
-		p = p.Next
-	}
-	return head.Next
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
-func printLinkedList(head *ListNode) {
-	for p := head; p != nil; p = p.Next {
-		if p != head {
-			fmt.Printf("->")
-		}
-		fmt.Printf("%d", p.Val)
-	}
-	println()
 }
 
 /*

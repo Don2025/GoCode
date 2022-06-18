@@ -2,9 +2,8 @@ package main
 
 import (
 	"bufio"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func singleNumber(nums []int) int {
@@ -18,17 +17,8 @@ func singleNumber(nums []int) int {
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
-		println(singleNumber(stringArrayToIntArray(strings.Fields(input.Text()))))
+		println(singleNumber(utils.StringToInts(input.Text())))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

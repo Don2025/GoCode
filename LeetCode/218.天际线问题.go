@@ -4,10 +4,10 @@ import (
 	"bufio"
 	"container/heap"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
 type pair struct{ right, height int }
@@ -49,13 +49,13 @@ func getSkyline(buildings [][]int) [][]int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		buildings := make([][]int, n)
 		for i := range buildings {
-			input.Scan()
-			buildings[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			buildings[i] = utils.StringToInts(scanner.Text())
 		}
 		ans := getSkyline(buildings)
 		for _, x := range ans {
@@ -63,15 +63,6 @@ func main() {
 		}
 		fmt.Println()
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

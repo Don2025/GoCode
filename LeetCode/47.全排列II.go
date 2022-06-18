@@ -2,11 +2,10 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
-	"strconv"
-	"strings"
 )
 
 func permuteUnique(nums []int) [][]int {
@@ -37,24 +36,15 @@ func permuteUnique(nums []int) [][]int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
 		ans := permuteUnique(nums)
 		for _, x := range ans {
-			fmt.Printf("%v ", x)
+			Printf("%v ", x)
 		}
-		fmt.Println()
+		Println()
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

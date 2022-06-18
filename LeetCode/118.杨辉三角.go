@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"strconv"
 )
@@ -23,11 +23,7 @@ func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
 		n, _ := strconv.Atoi(input.Text())
-		ans := generate(n)
-		for _, row := range ans {
-			fmt.Printf("%v ", row)
-		}
-		fmt.Println()
+		Printf("%v\n", generate(n))
 	}
 }
 

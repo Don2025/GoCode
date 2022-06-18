@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func combinationSum(candidates []int, target int) [][]int {
@@ -32,26 +32,17 @@ func combinationSum(candidates []int, target int) [][]int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		candidates := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		target, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		candidates := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		target, _ := strconv.Atoi(scanner.Text())
 		ans := combinationSum(candidates, target)
 		for _, x := range ans {
 			fmt.Printf("%v ", x)
 		}
 		fmt.Println()
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

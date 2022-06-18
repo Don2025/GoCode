@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func peakIndexInMountainArray(arr []int) int {
@@ -27,17 +27,9 @@ func peakIndexInMountainArray(arr []int) int {
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
-		println(peakIndexInMountainArray(stringArrayToIntArray(strings.Fields(input.Text()))))
+		arr := utils.StringToInts(input.Text())
+		Printf("Output: %v\n", peakIndexInMountainArray(arr))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

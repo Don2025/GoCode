@@ -2,11 +2,11 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
 func maxSubsequence(nums []int, k int) []int {
@@ -30,24 +30,11 @@ func maxSubsequence(nums []int, k int) []int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		ans := maxSubsequence(nums, k)
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", maxSubsequence(nums, k))
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }

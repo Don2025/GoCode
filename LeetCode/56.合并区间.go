@@ -3,10 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
 func merge(intervals [][]int) [][]int {
@@ -36,13 +36,13 @@ func max(a, b int) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		intervals := make([][]int, n)
 		for i := range intervals {
-			input.Scan()
-			intervals[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			intervals[i] = utils.StringToInts(scanner.Text())
 		}
 		ans := merge(intervals)
 		for _, row := range ans {
@@ -50,15 +50,6 @@ func main() {
 		}
 		fmt.Println()
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

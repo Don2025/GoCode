@@ -24,9 +24,9 @@ func groupAnagrams(strs []string) [][]string {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := strings.Fields(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		arr := strings.Fields(scanner.Text())
 		ans := groupAnagrams(arr)
 		for _, s := range ans {
 			fmt.Printf("%v ", s)

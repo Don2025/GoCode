@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func setZeroes(matrix [][]int) {
@@ -30,29 +30,17 @@ func setZeroes(matrix [][]int) {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
 		matrix := make([][]int, n)
 		for i := range matrix {
-			input.Scan()
-			matrix[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			scanner.Scan()
+			matrix[i] = utils.StringToInts(scanner.Text())
 		}
 		setZeroes(matrix)
-		for _, x := range matrix {
-			fmt.Printf("%v ", x)
-		}
-		fmt.Println()
+		fmt.Printf("%v\n", matrix)
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*

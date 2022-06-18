@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -36,10 +37,10 @@ func multiply(num1 string, num2 string) string {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := strings.Fields(input.Text())
-		println(multiply(arr[0], arr[1]))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		arr := strings.Fields(scanner.Text())
+		Println(multiply(arr[0], arr[1]))
 	}
 }
 

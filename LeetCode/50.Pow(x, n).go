@@ -20,11 +20,11 @@ func myPow(x float64, n int) float64 {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		x, _ := strconv.ParseFloat(input.Text(), 32)
-		input.Scan()
-		n, _ := strconv.Atoi(input.Text())
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		x, _ := strconv.ParseFloat(scanner.Text(), 32)
+		scanner.Scan()
+		n, _ := strconv.Atoi(scanner.Text())
 		println(myPow(x, n))
 	}
 }
