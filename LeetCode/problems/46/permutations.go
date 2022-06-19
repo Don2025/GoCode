@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// https://leetcode.cn/problems/permutations/
+//------------------------Leetcode Problem 46------------------------
 func permute(nums []int) [][]int {
 	if len(nums) == 1 {
 		return [][]int{nums}
@@ -36,19 +38,17 @@ func permute(nums []int) [][]int {
 	return ans
 }
 
+//------------------------Leetcode Problem 46------------------------
+/*
+ * https://leetcode.cn/problems/permutations/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：2.7MB 在所有Go提交中击败了48.74%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		nums := utils.StringToInts(scanner.Text())
-		ans := permute(nums)
-		for _, x := range ans {
-			Printf("%d ", x)
-		}
-		Println()
+		Printf("Output: %v\n", permute(nums))
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：2.7MB 在所有Go提交中击败了48.74%的用户
-**/

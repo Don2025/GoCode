@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 )
 
+// https://leetcode.cn/problems/first-missing-positive/
+//------------------------Leetcode Problem 41------------------------
 func firstMissingPositive(nums []int) int {
 	for i := 0; i < len(nums); i++ {
 		adjust(nums, i)
@@ -24,14 +27,17 @@ func adjust(nums []int, i int) {
 	}
 }
 
-func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	for scanner.Scan() {
-		println(firstMissingPositive(utils.StringToInts(scanner.Text())))
-	}
-}
-
+//------------------------Leetcode Problem 41------------------------
 /*
+ * https://leetcode.cn/problems/first-missing-positive/
  * 执行用时：112ms 在所有Go提交中击败了36.10%的用户
  * 占用内存：22MB 在所有Go提交中击败了10.59%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", firstMissingPositive(nums))
+	}
+}

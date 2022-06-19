@@ -8,6 +8,8 @@ import (
 	"strconv"
 )
 
+// https://leetcode.cn/problems/rotate-image/
+//------------------------Leetcode Problem 48------------------------
 func rotate(matrix [][]int) {
 	n := len(matrix)
 	for i := 0; i < (n >> 1); i++ {
@@ -20,6 +22,13 @@ func rotate(matrix [][]int) {
 	}
 }
 
+//------------------------Leetcode Problem 48------------------------
+/*
+ * https://leetcode.cn/problems/rotate-image/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：2.1MB 在所有Go提交中击败了100.00%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -30,11 +39,6 @@ func main() {
 			matrix[i] = utils.StringToInts(scanner.Text())
 		}
 		rotate(matrix)
-		Printf("%v\n", matrix)
+		Printf("Output: %v\n", matrix)
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：2.1MB 在所有Go提交中击败了100.00%的用户
-**/

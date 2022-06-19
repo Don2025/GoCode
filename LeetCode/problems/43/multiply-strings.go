@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+// https://leetcode.cn/problems/multiply-strings/
+//------------------------Leetcode Problem 43------------------------
 func multiply(num1 string, num2 string) string {
 	if num1 == "0" || num2 == "0" {
 		return "0"
@@ -36,15 +38,17 @@ func multiply(num1 string, num2 string) string {
 	return ans
 }
 
+//------------------------Leetcode Problem 43------------------------
+/*
+ * https://leetcode.cn/problems/multiply-strings/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：2.9MB 在所有Go提交中击败了78.54%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		arr := strings.Fields(scanner.Text())
-		Println(multiply(arr[0], arr[1]))
+		Printf("Output: %v\n", multiply(arr[0], arr[1]))
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：2.9MB 在所有Go提交中击败了78.54%的用户
-**/

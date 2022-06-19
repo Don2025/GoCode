@@ -8,6 +8,8 @@ import (
 	"sort"
 )
 
+// https://leetcode.cn/problems/permutations-ii/
+//------------------------Leetcode Problem 47------------------------
 func permuteUnique(nums []int) [][]int {
 	sort.Ints(nums)
 	n := len(nums)
@@ -35,19 +37,17 @@ func permuteUnique(nums []int) [][]int {
 	return ans
 }
 
+//------------------------Leetcode Problem 47------------------------
+/*
+ * https://leetcode.cn/problems/permutations-ii/
+ * 执行用时：4ms 在所有Go提交中击败了62.35%的用户
+ * 占用内存：3.6MB 在所有Go提交中击败了88.70%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		nums := utils.StringToInts(scanner.Text())
-		ans := permuteUnique(nums)
-		for _, x := range ans {
-			Printf("%v ", x)
-		}
-		Println()
+		Printf("Output: %v\n", permuteUnique(nums))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了62.35%的用户
- * 占用内存：3.6MB 在所有Go提交中击败了88.70%的用户
-**/

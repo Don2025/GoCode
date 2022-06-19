@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+// https://leetcode.cn/problems/wildcard-matching/
+//------------------------Leetcode Problem 44------------------------
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
 	dp := make([][]bool, m+1)
@@ -33,15 +35,17 @@ func isMatch(s string, p string) bool {
 	return dp[m][n]
 }
 
+//------------------------Leetcode Problem 44------------------------
+/*
+ * https://leetcode.cn/problems/wildcard-matching/
+ * 执行用时：20ms 在所有Go提交中击败了22.28%的用户
+ * 占用内存：6.3MB 在所有Go提交中击败了65.06%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		arr := strings.Fields(scanner.Text())
-		Println(isMatch(arr[0], arr[1]))
+		Printf("Output: %v\n", isMatch(arr[0], arr[1]))
 	}
 }
-
-/*
- * 执行用时：20ms 在所有Go提交中击败了22.28%的用户
- * 占用内存：6.3MB 在所有Go提交中击败了65.06%的用户
-**/

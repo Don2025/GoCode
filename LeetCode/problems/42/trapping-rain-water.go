@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// https://leetcode.cn/problems/trapping-rain-water/
+//------------------------Leetcode Problem 42------------------------
 func trap(height []int) int {
 	n := len(height)
 	left, right := make([]int, n), make([]int, n)
@@ -38,15 +40,17 @@ func min(a, b int) int {
 	return b
 }
 
+//------------------------Leetcode Problem 42------------------------
+/*
+ * https://leetcode.cn/problems/trapping-rain-water/
+ * 执行用时：8ms 在所有Go提交中击败了55.34%的用户
+ * 占用内存：4.1MB 在所有Go提交中击败了31.65%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		height := utils.StringToInts(scanner.Text())
-		Println(trap(height))
+		Printf("Output: %v", trap(height))
 	}
 }
-
-/*
- * 执行用时：8ms 在所有Go提交中击败了55.34%的用户
- * 占用内存：4.1MB 在所有Go提交中击败了31.65%的用户
-**/
