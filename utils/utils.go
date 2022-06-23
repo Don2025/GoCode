@@ -65,8 +65,8 @@ func StringToFloat64s(str string) (nums []float64) {
 	return
 }
 
-// StringToLinkList converts string to *ListNode.
-func StringToLinkList(str string) *structures.ListNode {
+// StringToListNode converts string to *ListNode.
+func StringToListNode(str string) *structures.ListNode {
 	if len(str) == 0 {
 		return nil
 	}
@@ -81,8 +81,8 @@ func StringToLinkList(str string) *structures.ListNode {
 	return head.Next
 }
 
-// IntsToLinkList converts []int to *ListNode.
-func IntsToLinkList(nums []int) *structures.ListNode {
+// IntsToListNode converts []int to *ListNode.
+func IntsToListNode(nums []int) *structures.ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
@@ -95,8 +95,8 @@ func IntsToLinkList(nums []int) *structures.ListNode {
 	return head.Next
 }
 
-// LinkListToInts converts *ListNode to []int.
-func LinkListToInts(head *structures.ListNode) (nums []int) {
+// ListNodeToInts converts *ListNode to []int.
+func ListNodeToInts(head *structures.ListNode) (nums []int) {
 	for p := head; p != nil; p = p.Next {
 		nums = append(nums, p.Val)
 	}
