@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/implement-strstr/
+//------------------------Leetcode Problem 28------------------------
 func strStr(haystack, needle string) int {
 	n, m := len(haystack), len(needle)
 	if m == 0 {
@@ -35,15 +38,17 @@ func strStr(haystack, needle string) int {
 	return -1
 }
 
+//------------------------Leetcode Problem 28------------------------
+/*
+ * https://leetcode.cn/problems/implement-strstr/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：1.8MB 在所有Go提交中击败了100.00%的用户
+**/
+
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
 		arr := strings.Fields(input.Text())
-		println(strStr(arr[0], arr[1]))
+		Printf("Output: %v\n", strStr(arr[0], arr[1]))
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：1.8MB 在所有Go提交中击败了100.00%的用户
-**/
