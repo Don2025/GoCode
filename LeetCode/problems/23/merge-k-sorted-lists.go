@@ -1,10 +1,17 @@
 package main
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import (
+	"bufio"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"os"
+	"strconv"
+)
 
+type ListNode = structures.ListNode
+
+// https://leetcode.cn/problems/merge-k-sorted-lists/
+//------------------------Leetcode Problem 23------------------------
 func mergeKLists(lists []*ListNode) *ListNode {
 	if len(lists) == 0 {
 		return nil
@@ -46,7 +53,22 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	return merge2Lists(mergeKLists(l1), mergeKLists(l2))
 }
 
+//------------------------Leetcode Problem 23------------------------
 /*
+ * https://leetcode.cn/problems/merge-k-sorted-lists/
  * 执行用时：8ms 在所有Go提交中击败了89.22%的用户
  * 占用内存：7MB 在所有Go提交中击败了5.21%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		lists := make([]*ListNode, n)
+		for i := range lists {
+			scanner.Scan()
+			lists[i] = utils.StringToListNode(scanner.Text())
+		}
+		utils.PrintLinkedList(mergeKLists(lists))
+	}
+}

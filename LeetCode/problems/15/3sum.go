@@ -2,12 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
-	"strings"
 )
 
+// https://leetcode.cn/problems/3sum/
 func threeSum(nums []int) [][]int {
 	n := len(nums)
 	sort.Ints(nums)
@@ -36,14 +37,16 @@ func threeSum(nums []int) [][]int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := utils.StringArrayToIntArray(strings.Fields(input.Text()))
-	}
-}
-
 /*
+ * https://leetcode.cn/problems/3sum/
  * 执行用时：32ms 在所有Go提交中击败了66.36%的用户
  * 占用内存：7.3MB 在所有Go提交中击败了68.63%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("%v\n", threeSum(nums))
+	}
+}

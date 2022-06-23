@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strings"
 )
 
+// https://leetcode.cn/problems/container-with-most-water/
+//------------------------Leetcode Problem 11------------------------
 func maxArea(height []int) int {
 	n := len(height)
 	if n < 1 {
@@ -40,15 +42,17 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		height := utils.StringArrayToIntArray(strings.Fields(input.Text()))
-		println(maxArea(height))
-	}
-}
-
+//------------------------Leetcode Problem 11------------------------
 /*
+ * https://leetcode.cn/problems/container-with-most-water/
  * 执行用时：68ms 在所有Go提交中击败了78.07%的用户
  * 占用内存：8.3MB 在所有Go提交中击败了71.99%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		height := utils.StringToInts(scanner.Text())
+		Printf("%v\n", maxArea(height))
+	}
+}

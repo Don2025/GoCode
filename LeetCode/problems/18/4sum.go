@@ -50,7 +50,6 @@ func fourSum(nums []int, target int) [][]int {
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	Printf("Input a line of numbers separated by space:")
 	for scanner.Scan() {
 		nums := utils.StringToInts(scanner.Text())
 		Printf("Input a number:")

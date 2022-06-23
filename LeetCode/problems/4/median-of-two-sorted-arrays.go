@@ -8,7 +8,7 @@ import (
 	"sort"
 )
 
-// https://leetcode.com/problems/median-of-two-sorted-arrays/
+// https://leetcode.cn/problems/median-of-two-sorted-arrays/
 //------------------------Leetcode Problem 4------------------------
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	var arr []float64
@@ -29,7 +29,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 
 //------------------------Leetcode Problem 4------------------------
 /*
- * https://leetcode.com/problems/median-of-two-sorted-arrays/
+ * https://leetcode.cn/problems/median-of-two-sorted-arrays/
  * 执行用时：16ms 在所有Go提交中击败了48.03%的用户
  * 占用内存：6.3MB 在所有Go提交中击败了11.68%的用户
 **/

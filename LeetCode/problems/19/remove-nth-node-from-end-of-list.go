@@ -44,7 +44,7 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	Printf("Input a line of numbers separated by space:")
 	for scanner.Scan() {
-		head := utils.StringToLinkList(scanner.Text())
+		head := utils.StringToListNode(scanner.Text())
 		Printf("Input a number:")
 		scanner.Scan()
 		n, _ := strconv.Atoi(scanner.Text())

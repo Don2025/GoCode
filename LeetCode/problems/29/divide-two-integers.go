@@ -46,6 +46,7 @@ func abs(n int) int {
  * 执行用时：4ms 在所有Go提交中击败了55.36%的用户
  * 占用内存：2.4MB 在所有Go提交中击败了100.00%的用户
 **/
+
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {

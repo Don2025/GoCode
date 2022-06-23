@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-// https://leetcode.com/problems/longest-substring-without-repeating-characters/
+// https://leetcode.cn/problems/longest-substring-without-repeating-characters/
 //------------------------Leetcode Problem 3------------------------
 func lengthOfLongestSubstring(s string) int {
 	m := make(map[byte]int)
@@ -28,7 +28,7 @@ func max(a, b int) int {
 
 //------------------------Leetcode Problem 3------------------------
 /*
- * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ * https://leetcode.cn/problems/longest-substring-without-repeating-characters/
  * 执行用时：12ms 在所有Go提交中击败了45.79%的用户
  * 占用内存：3MB 在所有Go提交中击败了44.91%的用户
 **/
