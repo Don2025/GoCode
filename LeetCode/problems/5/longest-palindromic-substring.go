@@ -2,9 +2,11 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+// https://leetcode.com/problems/longest-palindromic-substring/
 func longestPalindrome(s string) string {
 	if s == "" {
 		return ""
@@ -31,14 +33,15 @@ func longestPalindrome(s string) string {
 	return s[start : end+1]
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(longestPalindrome(input.Text()))
-	}
-}
-
 /*
+ * https://leetcode.com/problems/longest-palindromic-substring/
  * 执行用时：4ms 在所有Go提交中击败了95.56%的用户
  * 占用内存：2.5MB 在所有Go提交中击败了88.49%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf(longestPalindrome(scanner.Text()))
+	}
+}

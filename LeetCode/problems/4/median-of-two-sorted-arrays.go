@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
-	"strings"
 )
 
+// https://leetcode.com/problems/median-of-two-sorted-arrays/
+//------------------------Leetcode Problem 4------------------------
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	var arr []float64
 	for _, x := range nums1 {
@@ -25,16 +27,18 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	}
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums1 := utils.StringArrayToIntArray(strings.Fields(input.Text()))
-		nums2 := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(findMedianSortedArrays(nums1, nums2))
-	}
-}
-
+//------------------------Leetcode Problem 4------------------------
 /*
+ * https://leetcode.com/problems/median-of-two-sorted-arrays/
  * 执行用时：16ms 在所有Go提交中击败了48.03%的用户
  * 占用内存：6.3MB 在所有Go提交中击败了11.68%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums1 := utils.StringToInts(scanner.Text())
+		nums2 := utils.StringToInts(scanner.Text())
+		Printf("%v\n", findMedianSortedArrays(nums1, nums2))
+	}
+}

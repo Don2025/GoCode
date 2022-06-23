@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"github.com/Don2025/GoCode/structures"
 	"github.com/Don2025/GoCode/utils"
 	"os"
@@ -10,6 +10,7 @@ import (
 
 type TreeNode = structures.TreeNode
 
+//------------------------Leetcode Problem 101------------------------
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -32,6 +33,7 @@ func isSymmetric(root *TreeNode) bool {
 	return check(root, root)
 }
 
+//------------------------Leetcode Problem 101------------------------
 /*
  * https://leetcode.cn/problems/symmetric-tree/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
@@ -39,11 +41,11 @@ func isSymmetric(root *TreeNode) bool {
 **/
 
 func main() {
-	// The standard input is a line, for example:
-	// 1 2 2 null 3 null 3
 	scanner := bufio.NewScanner(os.Stdin)
+	Printf("Input a line of numbers separated by space:")
 	for scanner.Scan() {
 		root := utils.StringToTreeNode(scanner.Text())
-		fmt.Println(isSymmetric(root))
+		Printf("Output: %v\n", isSymmetric(root))
+		Printf("Input a line of numbers separated by space:")
 	}
 }

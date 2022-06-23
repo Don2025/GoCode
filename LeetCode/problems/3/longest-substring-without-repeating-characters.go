@@ -2,9 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+// https://leetcode.com/problems/longest-substring-without-repeating-characters/
+//------------------------Leetcode Problem 3------------------------
 func lengthOfLongestSubstring(s string) int {
 	m := make(map[byte]int)
 	var ans int
@@ -23,14 +26,16 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(lengthOfLongestSubstring(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 3------------------------
 /*
+ * https://leetcode.com/problems/longest-substring-without-repeating-characters/
  * 执行用时：12ms 在所有Go提交中击败了45.79%的用户
  * 占用内存：3MB 在所有Go提交中击败了44.91%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("%v\n", lengthOfLongestSubstring(scanner.Text()))
+	}
+}

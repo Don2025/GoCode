@@ -44,7 +44,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 //------------------------Leetcode Problem 2------------------------
 /*
  * https://leetcode.cn/problems/add-two-numbers
- * 执行用时：12ms 在所有Go提交中击败了48.74%的用户
+ * 执行用时：12ms 在所有Go提交中击败了48.75%的用户
  * 占用内存：4.4MB 在所有Go提交中击败了72.79%的用户
 **/
 func main() {
