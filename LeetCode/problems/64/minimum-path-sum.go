@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/minimum-path-sum/
+//------------------------Leetcode Problem 64------------------------
 func minPathSum(grid [][]int) int {
 	row, col := len(grid), len(grid[0])
 	if row == 0 || col == 0 {
@@ -34,6 +36,13 @@ func min(a, b int) int {
 	return b
 }
 
+//------------------------Leetcode Problem 64------------------------
+/*
+ * https://leetcode.cn/problems/minimum-path-sum/
+ * 执行用时：4ms 在所有Go提交中击败了97.81%的用户
+ * 占用内存：3.7MB 在所有Go提交中击败了100.00%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -41,13 +50,8 @@ func main() {
 		grid := make([][]int, n)
 		for i := range grid {
 			scanner.Scan()
-			grid[i] = utils.StringToInts(scanner.Text()))
+			grid[i] = utils.StringToInts(scanner.Text())
 		}
-		println(minPathSum(grid))
+		Printf("Output: %v\n", minPathSum(grid))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了97.81%的用户
- * 占用内存：3.7MB 在所有Go提交中击败了100.00%的用户
-**/
