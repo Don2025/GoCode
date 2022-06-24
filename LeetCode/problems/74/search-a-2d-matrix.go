@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/search-a-2d-matrix/
+//-------------------------Leetcode Problem 74------------------------
 func searchMatrix(matrix [][]int, target int) bool {
 	row, col := len(matrix), len(matrix[0])
 	if row == 0 || col == 0 {
@@ -27,6 +29,13 @@ func searchMatrix(matrix [][]int, target int) bool {
 	return false
 }
 
+//-------------------------Leetcode Problem 74------------------------
+/*
+ * https://leetcode.cn/problems/search-a-2d-matrix/
+ * 执行用时：4ms 在所有Go提交中击败了20.90%的用户
+ * 占用内存：2.5MB 在所有Go提交中击败了27.07%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -34,15 +43,10 @@ func main() {
 		matrix := make([][]int, n)
 		for i := range matrix {
 			scanner.Scan()
-			matrix[i] = utils.StringToInts(scanner.Text()))
+			matrix[i] = utils.StringToInts(scanner.Text())
 		}
 		scanner.Scan()
 		target, _ := strconv.Atoi(scanner.Text())
-		println(searchMatrix(matrix, target))
+		Printf("Output: %v\n", searchMatrix(matrix, target))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了20.90%的用户
- * 占用内存：2.5MB 在所有Go提交中击败了27.07%的用户
-**/

@@ -2,9 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+//https://leetcode.cn/problems/edit-distance/
+//------------------------Leetcode Problem 72------------------------
 func minDistance(word1 string, word2 string) int {
 	n1, n2 := len(word1), len(word2)
 	cost := make([][]int, n1+1)
@@ -34,17 +37,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		s1 := input.Text()
-		input.Scan()
-		s2 := input.Text()
-		println(minDistance(s1, s2))
-	}
-}
-
+//------------------------Leetcode Problem 72------------------------
 /*
+ * https://leetcode.cn/problems/edit-distance/
  * 执行用时：4ms 在所有Go提交中击败了79.04%的用户
  * 占用内存：5.4MB 在所有Go提交中击败了91.49%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		s1 := scanner.Text()
+		scanner.Scan()
+		s2 := scanner.Text()
+		Printf("Output: %v\n", minDistance(s1, s2))
+	}
+}

@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/set-matrix-zeroes/
+//------------------------Leetcode Problem 73------------------------
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
 	row := make([]bool, m)
@@ -29,6 +31,13 @@ func setZeroes(matrix [][]int) {
 	}
 }
 
+//------------------------Leetcode Problem 73------------------------
+/*
+ * https://leetcode.cn/problems/set-matrix-zeroes/
+ * 执行用时：12ms 在所有Go提交中击败了83.63%的用户
+ * 占用内存：6.2MB 在所有Go提交中击败了81.16%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -39,11 +48,6 @@ func main() {
 			matrix[i] = utils.StringToInts(scanner.Text())
 		}
 		setZeroes(matrix)
-		fmt.Printf("%v\n", matrix)
+		Printf("Output: %v\n", matrix)
 	}
 }
-
-/*
- * 执行用时：12ms 在所有Go提交中击败了83.63%的用户
- * 占用内存：6.2MB 在所有Go提交中击败了81.16%的用户
-**/

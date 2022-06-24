@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/combinations/
+//------------------------Leetcode Problem 77------------------------
 func combine(n int, k int) [][]int {
 	var ans [][]int
 	var t []int
@@ -31,21 +33,19 @@ func combine(n int, k int) [][]int {
 	return ans
 }
 
+//------------------------Leetcode Problem 77------------------------
+/*
+ * https://leetcode.cn/problems/combinations/
+ * 执行用时：4ms 在所有Go提交中击败了98.57%的用户
+ * 占用内存：6.3MB 在所有Go提交中击败了83.33%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		n, _ := strconv.Atoi(scanner.Text())
 		scanner.Scan()
 		k, _ := strconv.Atoi(scanner.Text())
-		ans := combine(n, k)
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+		Printf("Output: %v\n", combine(n, k))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了98.57%的用户
- * 占用内存：6.3MB 在所有Go提交中击败了83.33%的用户
-**/

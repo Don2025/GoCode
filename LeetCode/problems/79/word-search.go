@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/word-search/
+//------------------------Leetcode Problem 79------------------------
 func exist(board [][]byte, word string) bool {
 	row, col := len(board), len(board[0])
 	visited := make([][]bool, row)
@@ -46,22 +49,24 @@ func exist(board [][]byte, word string) bool {
 	return false
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		board := make([][]byte, n)
-		for i := range board {
-			input.Scan()
-			board[i] = []byte(input.Text())
-		}
-		input.Scan()
-		word := input.Text()
-		println(exist(board, word))
-	}
-}
-
+//------------------------Leetcode Problem 79------------------------
 /*
+ * https://leetcode.cn/problems/word-search/
  * 执行用时：88ms 在所有Go提交中击败了60.11%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了60.46%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		board := make([][]byte, n)
+		for i := range board {
+			scanner.Scan()
+			board[i] = []byte(scanner.Text())
+		}
+		scanner.Scan()
+		word := scanner.Text()
+		Printf("Output: %v\n", exist(board, word))
+	}
+}
