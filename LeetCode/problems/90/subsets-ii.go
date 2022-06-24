@@ -8,6 +8,8 @@ import (
 	"sort"
 )
 
+// https://leetcode.cn/problems/subsets-ii/
+//------------------------Leetcode Problem 90------------------------
 func subsetsWithDup(nums []int) [][]int {
 	sort.Ints(nums)
 	var t []int
@@ -30,15 +32,17 @@ func subsetsWithDup(nums []int) [][]int {
 	return ans
 }
 
+//------------------------Leetcode Problem 90------------------------
+/*
+ * https://leetcode.cn/problems/subsets-ii/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：2.3MB 在所有Go提交中击败了84.44%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		nums := utils.StringToInts(scanner.Text())
-		Printf("%v\n", subsetsWithDup(nums))
+		Printf("Output: %v\n", subsetsWithDup(nums))
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：2.3MB 在所有Go提交中击败了84.44%的用户
-**/
