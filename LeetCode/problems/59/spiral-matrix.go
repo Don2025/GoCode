@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/spiral-matrix/
+//------------------------Leetcode Problem 59------------------------
 func generateMatrix(n int) [][]int {
 	matrix := make([][]int, n)
 	for i := range matrix {
@@ -41,19 +43,17 @@ func generateMatrix(n int) [][]int {
 	return matrix
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		ans := generateMatrix(n)
-		for _, row := range ans {
-			fmt.Printf("%v ", row)
-		}
-		fmt.Println()
-	}
-}
-
+//------------------------Leetcode Problem 59------------------------
 /*
+ * https://leetcode.cn/problems/spiral-matrix/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了42.92%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", generateMatrix(n))
+	}
+}

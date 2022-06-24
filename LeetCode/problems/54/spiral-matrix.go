@@ -8,6 +8,8 @@ import (
 	"strconv"
 )
 
+// https://leetcode.cn/problems/spiral-matrix/
+//------------------------Leetcode Problem 54------------------------
 func spiralOrder(matrix [][]int) []int {
 	var ans []int
 	row, col := len(matrix), len(matrix[0])
@@ -44,6 +46,13 @@ func spiralOrder(matrix [][]int) []int {
 	return ans
 }
 
+//------------------------Leetcode Problem 54------------------------
+/*
+ * https://leetcode.cn/problems/spiral-matrix/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：1.8MB 在所有Go提交中击败了91.19%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -53,12 +62,6 @@ func main() {
 			scanner.Scan()
 			matrix[i] = utils.StringToInts(scanner.Text())
 		}
-		ans := spiralOrder(matrix)
-		fmt.Printf("%v\n", ans)
+		fmt.Printf("Output: %v\n", spiralOrder(matrix))
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：1.8MB 在所有Go提交中击败了91.19%的用户
-**/
