@@ -48,3 +48,28 @@ func MakeTree(str string) *TreeNode {
 	}
 	return root
 }
+
+// TreeToLevelOrderStrings converts *TreeNode into []string by level order traversal.
+func TreeToLevelOrderStrings(root *TreeNode) []string {
+	var ans []string
+	if root == nil {
+		return ans
+	}
+	queue := []*TreeNode{root}
+	var level int
+	for level = 0; len(queue) > 0; level++ {
+		size := len(queue)
+		for i := 0; i < size; i++ {
+			node := queue[i]
+			if node == nil {
+				ans = append(ans, "null")
+			} else {
+				ans = append(ans, strconv.Itoa(node.Val))
+				queue = append(queue, node.Left, node.Right)
+			}
+		}
+		queue = queue[size:]
+	}
+	level--
+	return ans[:1<<level-1]
+}

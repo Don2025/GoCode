@@ -1,10 +1,17 @@
 package main
 
-type TreeNode struct {
-	Val         int
-	Left, Right *TreeNode
-}
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"os"
+)
 
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/
+//------------------------Leetcode Problem 103------------------------
 func zigzagLevelOrder(root *TreeNode) [][]int {
 	var ans [][]int
 	if root == nil {
@@ -12,7 +19,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 	}
 	queue := []*TreeNode{root}
 	for i := 0; len(queue) > 0; i++ {
-		vals := []int{}
+		var vals []int
 		q := queue
 		queue = nil
 		for _, node := range q {
@@ -35,7 +42,16 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 	return ans
 }
 
+//------------------------Leetcode Problem 103------------------------
 /*
+ * https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.4MB 在所有Go提交中击败了86.97%的用户
 **/
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		root := utils.StringToTreeNode(scanner.Text())
+		Printf("Output: %v\n", zigzagLevelOrder(root))
+	}
+}
