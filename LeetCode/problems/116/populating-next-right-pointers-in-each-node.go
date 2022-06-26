@@ -7,6 +7,8 @@ type Node struct {
 	Next  *Node
 }
 
+// https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/
+//------------------------Leetcode Problem 116------------------------
 func connect(root *Node) *Node {
 	if root == nil {
 		return nil
@@ -31,7 +33,9 @@ func connect(root *Node) *Node {
 	return root
 }
 
+//------------------------Leetcode Problem 116------------------------
 /*
+ * https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/
  * 执行用时：4ms 在所有Go提交中击败了92.25%的用户
  * 占用内存：6.6MB 在所有Go提交中击败了35.17%的用户
 **/
