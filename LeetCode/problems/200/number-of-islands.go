@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/number-of-islands/
+//------------------------Leetcode Problem 200------------------------
 func numIslands(grid [][]byte) int {
 	var dfs func([][]byte, int, int)
 	dfs = func(grid [][]byte, r int, c int) {
@@ -41,6 +44,13 @@ func numIslands(grid [][]byte) int {
 	return cnt
 }
 
+//------------------------Leetcode Problem 200------------------------
+/*
+ * https://leetcode.cn/problems/number-of-islands/
+ * 执行用时：4ms 在所有Go提交中击败了90.66%的用户
+ * 占用内存：3.7MB 在所有Go提交中击败了75.77%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -50,11 +60,6 @@ func main() {
 			scanner.Scan()
 			grid[i] = []byte(scanner.Text())
 		}
-		println(numIslands(grid))
+		Printf("Output: %v\n", numIslands(grid))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了90.66%的用户
- * 占用内存：3.7MB 在所有Go提交中击败了75.77%的用户
-**/

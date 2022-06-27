@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/rotate-array/
+//------------------------Leetcode Problem 189------------------------
 func rotate(nums []int, k int) {
 	n := len(nums)
 	k = k % n
@@ -25,6 +27,13 @@ func rotate(nums []int, k int) {
 	reverse(nums)
 }
 
+//------------------------Leetcode Problem 189------------------------
+/*
+ * https://leetcode.cn/problems/rotate-array/
+ * 执行用时：24ms 在所有Go提交中击败了91.47%的用户
+ * 占用内存：9.2MB 在所有Go提交中击败了5.07%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -32,14 +41,6 @@ func main() {
 		scanner.Scan()
 		k, _ := strconv.Atoi(scanner.Text())
 		rotate(nums, k)
-		for _, x := range nums {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+		Printf("Output: %v\n", nums)
 	}
 }
-
-/*
- * 执行用时：24ms 在所有Go提交中击败了91.47%的用户
- * 占用内存：9.2MB 在所有Go提交中击败了5.07%的用户
-**/
