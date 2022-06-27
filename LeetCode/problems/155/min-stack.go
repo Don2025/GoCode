@@ -1,7 +1,9 @@
-package main
+package _55
 
 import "math"
 
+// https://leetcode.cn/problems/min-stack/
+//------------------------Leetcode Problem 155------------------------
 type MinStack struct {
 	Nums, MinValue []int
 }
@@ -44,7 +46,9 @@ func min(a, b int) int {
  * param_4 := obj.GetMin();
  */
 
+//------------------------Leetcode Problem 155------------------------
 /*
+ * https://leetcode.cn/problems/min-stack/
  * 执行用时：12ms 在所有Go提交中击败了95.71%的用户
  * 占用内存：8.2MB 在所有Go提交中击败了73.12%的用户
 **/

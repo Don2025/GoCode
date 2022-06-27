@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/max-points-on-a-line/
+//------------------------Leetcode Problem 149------------------------
 func maxPoints(points [][]int) int {
 	ans := 1
 	for i := 0; i < len(points); i++ {
@@ -33,6 +36,13 @@ func max(a, b int) int {
 	return b
 }
 
+//------------------------Leetcode Problem 149------------------------
+/*
+ * https://leetcode.cn/problems/max-points-on-a-line/
+ * 执行用时：4ms 在所有Go提交中击败了88.42%的用户
+ * 占用内存：2MB 在所有Go提交中击败了98.95%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -42,11 +52,6 @@ func main() {
 			scanner.Scan()
 			points[i] = utils.StringToInts(scanner.Text())
 		}
-		println(maxPoints(points))
+		Printf("Output: %v\n", maxPoints(points))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了88.42%的用户
- * 占用内存：2MB 在所有Go提交中击败了98.95%的用户
-**/
