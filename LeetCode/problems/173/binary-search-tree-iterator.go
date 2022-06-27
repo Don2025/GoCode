@@ -1,9 +1,11 @@
 package main
 
-type TreeNode struct {
-	Val         int
-	Left, Right *TreeNode
-}
+import "github.com/Don2025/GoCode/structures"
+
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/binary-search-tree-iterator/
+//------------------------Leetcode Problem 173------------------------
 
 type BSTIterator struct {
 	arr []int
@@ -39,8 +41,9 @@ func (it *BSTIterator) HasNext() bool {
  * param_1 := obj.Next();
  * param_2 := obj.HasNext();
  */
-
+//------------------------Leetcode Problem 173------------------------
 /*
+ * https://leetcode.cn/problems/binary-search-tree-iterator/
  * 执行用时：24ms 在所有Go提交中击败了68.71%的用户
  * 占用内存：9.7MB 在所有Go提交中击败了45.71%的用户
 **/

@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// https://leetcode.cn/problems/find-peak-element/
+//------------------------Leetcode Problem 162------------------------
 func findPeakElement(nums []int) int {
 	l, r := 0, len(nums)-1
 	for l < r {
@@ -20,6 +22,13 @@ func findPeakElement(nums []int) int {
 	return l
 }
 
+//------------------------Leetcode Problem 162------------------------
+/*
+ * https://leetcode.cn/problems/find-peak-element/
+ * 执行用时：4ms 在所有Go提交中击败了30.27%的用户
+ * 占用内存：2.7MB 在所有Go提交中击败了61.98%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -27,8 +36,3 @@ func main() {
 		Printf("Output: %v\n", findPeakElement(nums))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了30.27%的用户
- * 占用内存：2.7MB 在所有Go提交中击败了61.98%的用户
-**/
