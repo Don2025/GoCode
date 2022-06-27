@@ -15,6 +15,22 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// CreateTree creates a binary tree from a one-dimensional []string array with null values.
+func CreateTree(arr []string, index int) *TreeNode {
+	p := new(TreeNode)
+	if arr[index] == "null" {
+		return nil
+	}
+	p.Val, _ = strconv.Atoi(arr[index])
+	if index < len(arr) && (2*index+1) < len(arr) {
+		p.Left = CreateTree(arr, 2*index+1)
+	}
+	if index < len(arr) && (2*index+2) < len(arr) {
+		p.Right = CreateTree(arr, 2*index+2)
+	}
+	return p
+}
+
 // MakeTree returns a new *TreeNode with the given value.
 func MakeTree(str string) *TreeNode {
 	if len(str) == 0 {

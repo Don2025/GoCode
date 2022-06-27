@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/kth-largest-element-in-an-array/
+//------------------------Leetcode Problem 215------------------------
 func findKthLargest(nums []int, k int) int {
 	n := len(nums)
 	buildMaxHeap(nums, n)
@@ -38,17 +41,19 @@ func maxHepify(nums []int, i, n int) {
 	}
 }
 
+//------------------------Leetcode Problem 215------------------------
+/*
+ * https://leetcode.cn/problems/kth-largest-element-in-an-array/
+ * 执行用时：4ms 在所有Go提交中击败了97.36%的用户
+ * 占用内存：3.3MB 在所有Go提交中击败了88.36%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		nums := utils.StringToInts(scanner.Text())
 		scanner.Scan()
 		k, _ := strconv.Atoi(scanner.Text())
-		println(findKthLargest(nums, k))
+		Printf("Output: %v\n", findKthLargest(nums, k))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了97.36%的用户
- * 占用内存：3.3MB 在所有Go提交中击败了88.36%的用户
-**/

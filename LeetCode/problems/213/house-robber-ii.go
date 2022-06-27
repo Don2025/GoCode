@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 )
 
+// https://leetcode.cn/problems/house-robber-ii/
+//------------------------Leetcode Problem 213------------------------
 func rob(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
@@ -33,15 +36,17 @@ func max(a, b int) int {
 	return b
 }
 
+//------------------------Leetcode Problem 213------------------------
+/*
+ * https://leetcode.cn/problems/house-robber-ii/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：2MB 在所有Go提交中击败了47.22%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		nums := utils.StringToInts(scanner.Text())
-		println(rob(nums))
+		Printf("Output: %v\n", rob(nums))
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：2MB 在所有Go提交中击败了47.22%的用户
-**/

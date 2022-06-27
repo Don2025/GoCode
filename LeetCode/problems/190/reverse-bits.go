@@ -30,6 +30,9 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		num, _ := strconv.ParseUint(scanner.Text(), 2, 32)
-		Printf("Output: %v\n", reverseBits(uint32(num)))
+		ansInt := reverseBits(uint32(num))
+		ansUint32 := strconv.FormatUint(uint64(ansInt), 2)
+		ansUint32 = Sprintf("%0*v", 32, ansUint32)
+		Printf("Output: %v (%v)\n", ansInt, ansUint32)
 	}
 }

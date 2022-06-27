@@ -3,13 +3,15 @@ package main
 import (
 	"bufio"
 	"container/heap"
-	"fmt"
+	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/the-skyline-problem/
+// --------------------------Leetcode Problem 218--------------------------
 type pair struct{ right, height int }
 type hp []pair
 
@@ -48,6 +50,13 @@ func getSkyline(buildings [][]int) [][]int {
 	return ans
 }
 
+// --------------------------Leetcode Problem 218--------------------------
+/*
+ * https://leetcode.cn/problems/the-skyline-problem/
+ * 执行用时：8ms 在所有Go提交中击败了97.98%的用户
+ * 占用内存：2.6MB 在所有Go提交中击败了73.74%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -57,15 +66,6 @@ func main() {
 			scanner.Scan()
 			buildings[i] = utils.StringToInts(scanner.Text())
 		}
-		ans := getSkyline(buildings)
-		for _, x := range ans {
-			fmt.Printf("%v ", x)
-		}
-		fmt.Println()
+		Printf("Output: %v\n", getSkyline(buildings))
 	}
 }
-
-/*
- * 执行用时：8ms 在所有Go提交中击败了97.98%的用户
- * 占用内存：2.6MB 在所有Go提交中击败了73.74%的用户
-**/

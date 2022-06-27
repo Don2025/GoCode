@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+//https://leetcode.cn/problems/maximal-square/
+//------------------------Leetcode Problem 221------------------------
 func maximalSquare(matrix [][]byte) int {
 	var maxSide int
 	row, col := len(matrix), len(matrix[0])
@@ -54,20 +57,22 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		matrix := make([][]byte, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			matrix[i] = []byte(input.Text())
-		}
-		println(maximalSquare(matrix))
-	}
-}
-
+//------------------------Leetcode Problem 221------------------------
 /*
+ * https://leetcode.cn/problems/maximal-square/
  * 执行用时：8ms 在所有Go提交中击败了11.47%的用户
  * 占用内存：3.1MB 在所有Go提交中击败了99.43%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		matrix := make([][]byte, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			matrix[i] = []byte(scanner.Text())
+		}
+		Printf("Output: %v\n", maximalSquare(matrix))
+	}
+}
