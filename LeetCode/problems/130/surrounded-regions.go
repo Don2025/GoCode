@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/surrounded-regions/
+//------------------------Leetcode Problem 130------------------------
 func solve(board [][]byte) {
 	row, col := len(board), len(board[0])
 	if row == 0 || col == 0 {
@@ -42,23 +44,25 @@ func solve(board [][]byte) {
 	}
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		board := make([][]byte, n)
-		for i := range board {
-			input.Scan()
-			board[i] = []byte(input.Text())
-		}
-		solve(board)
-		for _, s := range board {
-			fmt.Printf("%s\n", s)
-		}
-	}
-}
-
+//------------------------Leetcode Problem 130------------------------
 /*
+ * https://leetcode.cn/problems/surrounded-regions/
  * 执行用时：20ms 在所有Go提交中击败了44.75%的用户
  * 占用内存：6.1MB 在所有Go提交中击败了81.41%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		board := make([][]byte, n)
+		for i := range board {
+			scanner.Scan()
+			board[i] = []byte(scanner.Text())
+		}
+		solve(board)
+		for _, s := range board {
+			Printf("%s\n", s)
+		}
+	}
+}

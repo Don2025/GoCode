@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/word-break/
+//------------------------Leetcode Problem 139------------------------
 func wordBreak(s string, wordDict []string) bool {
 	wordMap := make(map[string]bool)
 	for _, x := range wordDict {
@@ -24,17 +27,19 @@ func wordBreak(s string, wordDict []string) bool {
 	return dp[len(s)]
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		s := input.Text()
-		input.Scan()
-		wordDict := strings.Fields(input.Text())
-		println(wordBreak(s, wordDict))
-	}
-}
-
+//------------------------Leetcode Problem 139------------------------
 /*
+ * https://leetcode.cn/problems/word-break/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.2MB 在所有Go提交中击败了78.67%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		s := scanner.Text()
+		scanner.Scan()
+		wordDict := strings.Fields(scanner.Text())
+		Printf("Output: %v\n", wordBreak(s, wordDict))
+	}
+}
