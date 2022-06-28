@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
 var pick int
 
+// https://leetcode.cn/problems/guess-number-higher-or-lower/
+//------------------------Leetcode Problem 374------------------------
 /**
  * Forward declaration of guess API.
  * @param  num   your guess
@@ -42,17 +45,19 @@ func guessNumber(n int) int {
 	return 0
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		pick, _ = strconv.Atoi(input.Text())
-		println(guessNumber(n))
-	}
-}
-
+//------------------------Leetcode Problem 374------------------------
 /*
+ * https://leetcode.cn/problems/guess-number-higher-or-lower/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了91.23%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		pick, _ = strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", guessNumber(n))
+	}
+}

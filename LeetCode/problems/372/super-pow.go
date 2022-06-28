@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/super-pow/
+//------------------------Leetcode Problem 372------------------------
 func superPow(a int, b []int) int {
 	const mod = 1337
 	var exp int
@@ -47,26 +50,19 @@ func phi(n int) int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		a, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		b := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(superPow(a, b))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 372------------------------
 /*
+ * https://leetcode.cn/problems/super-pow/
  * 执行用时：16ms 在所有Go提交中击败了44.87%的用户
  * 占用内存：3.6MB 在所有Go提交中击败了94.87%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		a, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		b := utils.StringToInts(scanner.Text())
+		Printf("Output: %d\n", superPow(a, b))
+	}
+}
