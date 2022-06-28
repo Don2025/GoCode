@@ -3,12 +3,15 @@ package main
 import (
 	"bufio"
 	"container/heap"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/super-ugly-number/
+//------------------------Leetcode Problem 313------------------------
 //最小堆
 type hp struct{ sort.IntSlice }
 
@@ -37,24 +40,18 @@ func nthSuperUglyNumber(n int, primes []int) (ugly int) {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		println(nthSuperUglyNumber(n, stringArrayToIntArray(strings.Fields(input.Text()))))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		primes := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", nthSuperUglyNumber(n, primes))
 	}
 }
 
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 313------------------------
 /*
+ * https://leetcode.cn/problems/super-ugly-number/
  * 执行用时：388ms 在所有Go提交中击败了12.28%的用户
  * 占用内存：77.1MB 在所有Go提交中击败了5.26%的用户
 **/

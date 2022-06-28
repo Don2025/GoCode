@@ -1,5 +1,7 @@
-package main
+package _41
 
+// https://leetcode.cn/problems/flatten-nested-list-iterator/
+//------------------------Leetcode Problem 341------------------------
 /**
  * // This is the interface that allows for creating nested lists.
  * // You should not implement it, or speculate about its implementation
@@ -61,7 +63,9 @@ func (it *NestedIterator) HasNext() bool {
 	return false
 }
 
+//------------------------Leetcode Problem 341------------------------
 /*
+ * https://leetcode.cn/problems/flatten-nested-list-iterator/
  * 执行用时：4ms 在所有Go提交中击败了85.64%的用户
  * 占用内存：5.1MB 在所有Go提交中击败了100.00%的用户
 **/

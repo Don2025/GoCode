@@ -1,10 +1,13 @@
-package main
+package _85
 
 import (
+	"github.com/Don2025/GoCode/LeetCode/problems/341"
 	"strconv"
 	"unicode"
 )
 
+// https://leetcode.cn/problems/mini-parser
+//------------------------Leetcode Problem 385------------------------
 /**
  * // This is the interface that allows for creating nested lists.
  * // You should not implement it, or speculate about its implementation
@@ -33,7 +36,7 @@ import (
 func deserialize(s string) *NestedInteger {
 	if s[0] != '[' {
 		num, _ := strconv.Atoi(s)
-		ni := &NestedIterator{}
+		ni := &_41.NestedIterator{}
 		ni.SetInteger(num)
 		return ni
 	}
@@ -64,7 +67,9 @@ func deserialize(s string) *NestedInteger {
 	return stack[len(stack)-1]
 }
 
+//------------------------Leetcode Problem 385------------------------
 /*
+ * https://leetcode.cn/problems/mini-parser/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：4.3MB 在所有Go提交中击败了65.00%的用户
 **/
