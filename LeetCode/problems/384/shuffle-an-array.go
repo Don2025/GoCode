@@ -1,6 +1,9 @@
-package main
+package _84
 
 import "math/rand"
+
+// https://leetcode.cn/problems/shuffle-an-array/
+//------------------------Leetcode Problem 384------------------------
 
 type Solution struct {
 	nums []int
@@ -29,8 +32,9 @@ func (this *Solution) Shuffle() []int {
  * param_1 := obj.Reset();
  * param_2 := obj.Shuffle();
  */
-
+//------------------------Leetcode Problem 384------------------------
 /*
+ * https://leetcode.cn/problems/shuffle-an-array/
  * 执行用时：44ms 在所有Go提交中击败了38.64%的用户
  * 占用内存：9MB 在所有Go提交中击败了85.23%的用户
 **/

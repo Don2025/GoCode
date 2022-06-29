@@ -8,6 +8,8 @@ import (
 	"strconv"
 )
 
+// https://leetcode.cn/problems/binary-watch/
+//------------------------Leetcode Problem 401------------------------
 func readBinaryWatch(turnedOn int) []string {
 	var ans []string
 	var h, m uint8
@@ -21,19 +23,17 @@ func readBinaryWatch(turnedOn int) []string {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		ans := readBinaryWatch(n)
-		for _, x := range ans {
-			fmt.Printf("%s ", x)
-		}
-		println()
-	}
-}
-
+//------------------------Leetcode Problem 401------------------------
 /*
+ * https://leetcode.cn/problems/binary-watch/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了75.56%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		fmt.Printf("Output: %v\n", readBinaryWatch(n))
+	}
+}

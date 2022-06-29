@@ -1,6 +1,9 @@
-package main
+package _80
 
 import "math/rand"
+
+// https://leetcode.cn/problems/insert-delete-getrandom-o1/
+//------------------------Leetcode Problem 380------------------------
 
 type RandomizedSet struct {
 	Nums     []int
@@ -44,8 +47,9 @@ func (this *RandomizedSet) GetRandom() int {
  * param_2 := obj.Remove(val);
  * param_3 := obj.GetRandom();
  */
-
+//------------------------Leetcode Problem 380------------------------
 /*
+ * https://leetcode.cn/problems/insert-delete-getrandom-o1/
  * 执行用时：160ms 在所有Go提交中击败了29.12%的用户
  * 占用内存：43.5MB 在所有Go提交中击败了99.73%的用户
 **/

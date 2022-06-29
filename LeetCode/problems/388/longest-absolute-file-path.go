@@ -2,9 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+// https://leetcode.cn/problems/longest-absolute-file-path/
+//------------------------Leetcode Problem 388------------------------
 func lengthLongestPath(input string) int {
 	n := len(input)
 	var ans int
@@ -25,7 +28,6 @@ func lengthLongestPath(input string) int {
 			length++
 		}
 		i++ // 跳过换行符
-
 		if depth > 1 {
 			length += level[depth-1] + 1
 		}
@@ -45,14 +47,16 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(lengthLongestPath(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 388------------------------
 /*
+ * https://leetcode.cn/problems/longest-absolute-file-path/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了73.91%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", lengthLongestPath(scanner.Text()))
+	}
+}

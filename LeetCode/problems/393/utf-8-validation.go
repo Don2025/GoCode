@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/utf-8-validation/
+//------------------------Leetcode Problem 393------------------------
 func validUtf8(data []int) bool {
 	var n int
 	for _, x := range data {
@@ -32,24 +34,17 @@ func validUtf8(data []int) bool {
 	return n == 0
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		data := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(validUtf8(data))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 393------------------------
 /*
+ * https://leetcode.cn/problems/utf-8-validation/
  * 执行用时：8ms 在所有Go提交中击败了97.44%的用户
  * 占用内存：5MB 在所有Go提交中击败了92.31%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		data := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", validUtf8(data))
+	}
+}

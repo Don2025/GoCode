@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/rotate-function/
+//------------------------Leetcode Problem 396------------------------
 func maxRotateFunction(nums []int) int {
 	var f, sum int
 	for i := range nums {
@@ -28,24 +30,17 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(maxRotateFunction(nums))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 396------------------------
 /*
+ * https://leetcode.cn/problems/rotate-function/
  * 执行用时：120ms 在所有Go提交中击败了91.43%的用户
  * 占用内存：7.9MB 在所有Go提交中击败了65.71%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", maxRotateFunction(nums))
+	}
+}
