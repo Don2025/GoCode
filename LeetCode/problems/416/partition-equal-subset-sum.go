@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/partition-equal-subset-sum/
+//------------------------Leetcode Problem 416------------------------
 func canPartition(nums []int) bool {
 	var sum int
 	for _, x := range nums {
@@ -35,24 +37,17 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(canPartition(nums))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 416------------------------
 /*
+ * https://leetcode.cn/problems/partition-equal-subset-sum/
  * 执行用时：21ms 在所有Go提交中击败了93.11%的用户
  * 占用内存：3.2MB 在所有Go提交中击败了71.91%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", canPartition(nums))
+	}
+}

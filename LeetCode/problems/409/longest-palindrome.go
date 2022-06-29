@@ -2,9 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+// https://leetcode.cn/problems/longest-palindrome/
+//------------------------Leetcode Problem 409------------------------
 func longestPalindrome(s string) int {
 	m := make(map[rune]int)
 	for _, x := range s {
@@ -21,13 +24,14 @@ func longestPalindrome(s string) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(longestPalindrome(input.Text()))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", longestPalindrome(scanner.Text()))
 	}
 }
 
 /*
+ * https://leetcode.cn/problems/longest-palindrome/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了58.67%的用户
 **/

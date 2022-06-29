@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"math"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/third-maximum-number/
+//------------------------Leetcode Problem 414------------------------
 func thirdMax(nums []int) int {
 	var cnt int
 	// 注意测试样例 [1,2,-2147483648],预期结果是-2147483647,所以不能用MinInt32
@@ -36,23 +38,17 @@ func thirdMax(nums []int) int {
 	return max3
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(thirdMax(stringArrayToIntArray(strings.Fields(input.Text()))))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 414------------------------
 /*
+ * https://leetcode.cn/problems/third-maximum-number/
  * 执行用时：4ms 在所有Go提交中击败了91.62%的用户
  * 占用内存：2.9MB 在所有Go提交中击败了53.89%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", thirdMax(nums))
+	}
+}

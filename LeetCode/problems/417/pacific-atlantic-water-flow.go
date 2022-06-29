@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/pacific-atlantic-water-flow/
+//------------------------Leetcode Problem 417------------------------
 func pacificAtlantic(heights [][]int) [][]int {
 	var ans [][]int
 	m := len(heights)
@@ -50,33 +52,22 @@ func pacificAtlantic(heights [][]int) [][]int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		heights := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			heights[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		ans := pacificAtlantic(heights)
-		for _, x := range ans {
-			fmt.Printf("%v ", x)
-		}
-		fmt.Println()
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 417------------------------
 /*
+ * https://leetcode.cn/problems/pacific-atlantic-water-flow/
  * 执行用时：28ms 在所有Go提交中击败了92.20%的用户
  * 占用内存：6.7MB 在所有Go提交中击败了84.40%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		heights := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			heights[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", pacificAtlantic(heights))
+	}
+}

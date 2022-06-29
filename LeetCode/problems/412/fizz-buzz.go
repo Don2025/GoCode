@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/fizz-buzz/
+//------------------------Leetcode Problem 412------------------------
 func fizzBuzz(n int) []string {
 	var ans []string
 	for i := 1; i <= n; i++ {
@@ -23,19 +25,17 @@ func fizzBuzz(n int) []string {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		ans := fizzBuzz(n)
-		for _, x := range ans {
-			fmt.Printf("%s ", x)
-		}
-		fmt.Println()
-	}
-}
-
+//------------------------Leetcode Problem 412------------------------
 /*
+ * https://leetcode.cn/problems/fizz-buzz/
  * 执行用时：4ms 在所有Go提交中击败了83.64%的用户
  * 占用内存：4.1MB 在所有Go提交中击败了29.37%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", fizzBuzz(n))
+	}
+}
