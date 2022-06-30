@@ -3,10 +3,13 @@ package main
 import (
 	"bufio"
 	"bytes"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/reconstruct-original-digits-from-english/
+//------------------------Leetcode Problem 423------------------------
 func originalDigits(s string) string {
 	m := make(map[rune]int)
 	for _, x := range s {
@@ -30,14 +33,16 @@ func originalDigits(s string) string {
 	return ans.String()
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(originalDigits(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 423------------------------
 /*
+ * https://leetcode.cn/problems/reconstruct-original-digits-from-english/
  * 执行用时：8ms 在所有Go提交中击败了75.76%的用户
  * 占用内存：4.9MB 在所有Go提交中击败了69.70%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", originalDigits(scanner.Text()))
+	}
+}

@@ -1,5 +1,8 @@
 package main
 
+// https://leetcode.cn/problems/construct-quad-tree/
+//------------------------Leetcode Problem 427------------------------
+
 type Node struct {
 	Val         bool
 	IsLeaf      bool
@@ -34,7 +37,9 @@ func construct(grid [][]int) *Node {
 	return dfs(0, 0, len(grid))
 }
 
+//------------------------Leetcode Problem 427------------------------
 /*
+ * https://leetcode.cn/problems/construct-quad-tree/
  * 执行用时：8ms 在所有Go提交中击败了76.19%的用户
  * 占用内存：6.5MB 在所有Go提交中击败了76.19%的用户
 **/

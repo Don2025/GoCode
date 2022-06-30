@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"unicode"
 )
 
+// https://leetcode.cn/problems/strong-password-checker/
+//------------------------Leetcode Problem 420------------------------
 func strongPasswordChecker(password string) int {
 	hasLower, hasUpper, hasDigit := 0, 0, 0
 	for _, ch := range password {
@@ -94,14 +97,16 @@ func min(a, b int) int {
 	return a
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(strongPasswordChecker(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 420------------------------
 /*
+ * https://leetcode.cn/problems/strong-password-checker/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.7MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", strongPasswordChecker(scanner.Text()))
+	}
+}

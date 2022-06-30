@@ -1,4 +1,7 @@
-package main
+package _30
+
+// https://leetcode.cn/problems/flatten-a-multilevel-doubly-linked-list/
+//------------------------Leetcode Problem 430------------------------
 
 type Node struct {
 	Val   int
@@ -30,7 +33,9 @@ func flatten(root *Node) *Node {
 	return root
 }
 
+//------------------------Leetcode Problem 430------------------------
 /*
+ * https://leetcode.cn/problems/flatten-a-multilevel-doubly-linked-list/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.9MB 在所有Go提交中击败了72.37%的用户
 **/
