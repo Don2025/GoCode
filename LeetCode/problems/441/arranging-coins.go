@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/arranging-coins/
+//------------------------Leetcode Problem 441------------------------
 func arrangeCoins(n int) int {
 	l, r := 1, n
 	for l <= r {
@@ -22,15 +25,17 @@ func arrangeCoins(n int) int {
 	return r
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		println(arrangeCoins(n))
-	}
-}
-
+//------------------------Leetcode Problem 441------------------------
 /*
+ * https://leetcode.cn/problems/arranging-coins/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		Println(arrangeCoins(n))
+	}
+}

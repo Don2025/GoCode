@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/minimum-genetic-mutation/
+//------------------------Leetcode Problem 433------------------------
 func minMutation(start string, end string, bank []string) int {
 	type queue struct {
 		str  string
@@ -43,19 +46,21 @@ func minMutation(start string, end string, bank []string) int {
 	return -1
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		start := input.Text()
-		input.Scan()
-		end := input.Text()
-		input.Scan()
-		bank := strings.Fields(input.Text())
-		println(minMutation(start, end, bank))
-	}
-}
-
+//------------------------Leetcode Problem 433------------------------
 /*
+ * https://leetcode.cn/problems/minimum-genetic-mutation/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了64.66%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		start := scanner.Text()
+		scanner.Scan()
+		end := scanner.Text()
+		scanner.Scan()
+		bank := strings.Fields(scanner.Text())
+		Printf("Output: %v\n", minMutation(start, end, bank))
+	}
+}

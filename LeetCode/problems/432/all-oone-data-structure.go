@@ -1,6 +1,9 @@
-package main
+package _32
 
 import "container/list"
+
+// https://leetcode.cn/problems/all-oone-data-structure/
+//------------------------Leetcode Problem 432------------------------
 
 type node struct {
 	keys  map[string]struct{}
@@ -84,8 +87,9 @@ func (l *AllOne) GetMinKey() string {
  * param_3 := obj.GetMaxKey();
  * param_4 := obj.GetMinKey();
  */
-
+//------------------------Leetcode Problem 432------------------------
 /*
+ * https://leetcode.cn/problems/all-oone-data-structure/
  * 执行用时：100ms 在所有Go提交中击败了60.47%的用户
  * 占用内存：18.8MB 在所有Go提交中击败了72.09%的用户
 **/

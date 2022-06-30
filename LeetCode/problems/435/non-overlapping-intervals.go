@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/non-overlapping-intervals/
+//------------------------Leetcode Problem 435------------------------
 func eraseOverlapIntervals(intervals [][]int) int {
 	n := len(intervals)
 	if n == 0 {
@@ -26,6 +29,13 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	return n - ans
 }
 
+//------------------------Leetcode Problem 435------------------------
+/*
+ * https://leetcode.cn/problems/non-overlapping-intervals/
+ * 执行用时：204ms 在所有Go提交中击败了79.28%的用户
+ * 占用内存：15.6MB 在所有Go提交中击败了90.295%的用户
+**/
+
 func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
@@ -33,22 +43,8 @@ func main() {
 		intervals := make([][]int, n)
 		for i := range intervals {
 			input.Scan()
-			intervals[i] = stringArrayToIntArray(strings.Fields(input.Text()))
+			intervals[i] = utils.StringToInts(input.Text())
 		}
-		println(eraseOverlapIntervals(intervals))
+		Printf("Output: %v\n", eraseOverlapIntervals(intervals))
 	}
 }
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
-/*
- * 执行用时：204ms 在所有Go提交中击败了79.28%的用户
- * 占用内存：15.6MB 在所有Go提交中击败了90.295%的用户
-**/

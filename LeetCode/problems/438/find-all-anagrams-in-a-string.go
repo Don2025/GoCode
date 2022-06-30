@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/find-all-anagrams-in-a-string/
+//------------------------Leetcode Problem 438------------------------
 func findAnagrams(s string, p string) []int {
 	var ans []int
 	if len(s) < len(p) {
@@ -30,20 +32,18 @@ func findAnagrams(s string, p string) []int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := strings.Fields(input.Text())
-		s, p := arr[0], arr[1]
-		ans := findAnagrams(s, p)
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
-	}
-}
-
+//------------------------Leetcode Problem 438------------------------
 /*
+ * https://leetcode.cn/problems/find-all-anagrams-in-a-string/
  * 执行用时：4ms 在所有Go提交中击败了94.79%的用户
  * 占用内存：5MB 在所有Go提交中击败了79.68%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		arr := strings.Fields(scanner.Text())
+		s, p := arr[0], arr[1]
+		Printf("Output: %v\n", findAnagrams(s, p))
+	}
+}

@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/
+//------------------------Leetcode Problem 440------------------------
 func findKthNumber(n int, k int) int {
 	ans := 1
 	var getSteps func(int, int) int
@@ -40,17 +43,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		println(findKthNumber(n, k))
-	}
-}
-
+//------------------------Leetcode Problem 440------------------------
 /*
+ * https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.8MB 在所有Go提交中击败了65.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", findKthNumber(n, k))
+	}
+}

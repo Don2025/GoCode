@@ -1,11 +1,17 @@
 package main
 
 import (
+	"github.com/Don2025/GoCode/LeetCode"
+	"github.com/Don2025/GoCode/structures"
 	"math"
 	"strconv"
 	"strings"
 )
 
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/serialize-and-deserialize-bst/
+//------------------------Leetcode Problem 449------------------------
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -20,10 +26,10 @@ type Codec struct{}
 func Constructor() (_ Codec) { return }
 
 // Serializes a tree to a single string.
-func (Codec) serialize(root *TreeNode) string {
+func (Codec) serialize(root *main.TreeNode) string {
 	var arr []string
-	var preOrder func(*TreeNode)
-	preOrder = func(node *TreeNode) {
+	var preOrder func(*main.TreeNode)
+	preOrder = func(node *main.TreeNode) {
 		if node == nil {
 			return
 		}
@@ -36,13 +42,13 @@ func (Codec) serialize(root *TreeNode) string {
 }
 
 // Deserializes your encoded data to tree.
-func (Codec) deserialize(data string) *TreeNode {
+func (Codec) deserialize(data string) *main.TreeNode {
 	if data == "" {
 		return nil
 	}
 	arr := strings.Split(data, " ")
-	var dfs func(int, int) *TreeNode
-	dfs = func(left, right int) *TreeNode {
+	var dfs func(int, int) *main.TreeNode
+	dfs = func(left, right int) *main.TreeNode {
 		if len(arr) == 0 {
 			return nil
 		}
@@ -51,7 +57,7 @@ func (Codec) deserialize(data string) *TreeNode {
 			return nil
 		}
 		arr = arr[1:]
-		return &TreeNode{val, dfs(left, val), dfs(val, right)}
+		return &main.TreeNode{val, dfs(left, val), dfs(val, right)}
 	}
 	return dfs(math.MinInt32, math.MaxInt32)
 }
@@ -64,8 +70,9 @@ func (Codec) deserialize(data string) *TreeNode {
  * ans := deser.deserialize(tree)
  * return ans
  */
-
+//------------------------Leetcode Problem 449------------------------
 /*
+ * https://leetcode.cn/problems/serialize-and-deserialize-bst/
  * 执行用时：8ms 在所有Go提交中击败了89.47%的用户
  * 占用内存：6.3MB 在所有Go提交中击败了81.05%的用户
 **/
