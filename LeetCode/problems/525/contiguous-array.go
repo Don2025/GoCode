@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/contiguous-array/
+//------------------------Leetcode Problem 525------------------------
 func findMaxLength(nums []int) int {
 	var cnt, ans int
 	mp := map[int]int{0: -1}
@@ -28,24 +30,17 @@ func findMaxLength(nums []int) int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		a := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(findMaxLength(a))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 525------------------------
 /*
+ * https://leetcode.cn/problems/contiguous-array/
  * 执行用时：132ms 在所有Go提交中击败了22.22%的用户
  * 占用内存：7.5MB 在所有Go提交中击败了27.78%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", findMaxLength(nums))
+	}
+}

@@ -2,13 +2,15 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"math"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/01-matrix/
+//------------------------Leetcode Problem 542------------------------
 func updateMatrix(mat [][]int) [][]int {
 	row, col := len(mat), len(mat[0])
 	queue := make([][]int, 0)
@@ -36,35 +38,22 @@ func updateMatrix(mat [][]int) [][]int {
 	return mat
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		arr := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			arr[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		ans := updateMatrix(arr)
-		for i := 0; i < len(ans); i++ {
-			for j := 0; j < len(ans[0]); j++ {
-				fmt.Printf("%d ", ans[i][j])
-			}
-			println()
-		}
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 542------------------------
 /*
+ * https://leetcode.cn/problems/01-matrix/
  * 执行用时：112ms 在所有Go提交中击败了6.25%的用户
  * 占用内存：7.8MB 在所有Go提交中击败了58.33%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		arr := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			arr[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", updateMatrix(arr))
+	}
+}

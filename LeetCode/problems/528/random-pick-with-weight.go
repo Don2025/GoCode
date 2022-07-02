@@ -1,9 +1,12 @@
-package main
+package _28
 
 import (
 	"math/rand"
 	"sort"
 )
+
+// https://leetcode.cn/problems/random-pick-with-weight/
+//------------------------Leetcode Problem 528------------------------
 
 type Solution struct {
 	pre []int
@@ -26,8 +29,9 @@ func (this *Solution) PickIndex() int {
  * obj := Constructor(w);
  * param_1 := obj.PickIndex();
  */
-
+//------------------------Leetcode Problem 528------------------------
 /*
+ * https://leetcode.cn/problems/random-pick-with-weight/
  * 执行用时：48ms 在所有Go提交中击败了63.16%的用户
  * 占用内存：8.3MB 在所有Go提交中击败了53.95%的用户
 **/
