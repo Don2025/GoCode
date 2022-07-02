@@ -2,6 +2,9 @@ package main
 
 import "math/rand"
 
+// https://leetcode.cn/problems/random-flip-matrix/
+//------------------------Leetcode Problem 519------------------------
+
 type Solution struct {
 	m, n, total int
 	mp          map[int]int
@@ -39,8 +42,9 @@ func (this *Solution) Reset() {
  * param_1 := obj.Flip();
  * obj.Reset();
  */
-
+//------------------------Leetcode Problem 519------------------------
 /*
+ * https://leetcode.cn/problems/random-flip-matrix/
  * 执行用时：4ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：5.1MB 在所有Go提交中击败了72.73%的用户
 **/

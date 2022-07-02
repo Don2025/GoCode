@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"unicode"
 )
 
+// https://leetcode.cn/problems/detect-capital/
+//------------------------Leetcode Problem 520------------------------
 func detectCapitalUse(word string) bool {
 	var cntUpper, cntLower int
 	for _, x := range word {
@@ -28,13 +31,15 @@ func detectCapitalUse(word string) bool {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(detectCapitalUse(input.Text()))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", detectCapitalUse(scanner.Text()))
 	}
 }
 
+//------------------------Leetcode Problem 520------------------------
 /*
+ * https://leetcode.cn/problems/detect-capital/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了100.00%的用户
 **/
