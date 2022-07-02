@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
-	"strconv"
 	"strings"
 )
 
+// https://leetcode.cn/problems/longest-harmonious-subsequence/
+//------------------------Leetcode Problem 594------------------------
 func findLHS(nums []int) int {
 	var ans int
 	cnt := make(map[int]int)
@@ -28,23 +30,17 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(findLHS(stringArrayToIntArray(strings.Fields(input.Text()))))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 594------------------------
 /*
+ * https://leetcode.cn/problems/longest-harmonious-subsequence/
  * 执行用时：56ms 在所有Go提交中击败了60.98%的用户
  * 占用内存：7.2MB 在所有Go提交中击败了25.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := strings.Fields(scanner.Text())
+		Printf("Output: %d\n", findLHS(make([]int, len(nums))))
+	}
+}

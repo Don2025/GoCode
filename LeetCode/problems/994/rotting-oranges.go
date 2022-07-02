@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/rotting-oranges/
+//------------------------Leetcode Problem 994------------------------
 func orangesRotting(grid [][]int) int {
 	if grid == nil || len(grid) == 0 {
 		return 0
@@ -59,29 +62,22 @@ func orangesRotting(grid [][]int) int {
 	return -1
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		grid := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			grid[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(orangesRotting(grid))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 994------------------------
 /*
+ * https://leetcode.cn/problems/rotting-oranges/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.6MB 在所有Go提交中击败了95.24%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		grid := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			grid[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", orangesRotting(grid))
+	}
+}

@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 	"unicode"
 )
 
+// https://leetcode.cn/problems/tag-validator/
+//------------------------Leetcode Problem 591------------------------
 func isValid(code string) bool {
 	var tags []string
 	for code != "" {
@@ -63,14 +66,16 @@ func isValid(code string) bool {
 	return len(tags) == 0
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(isValid(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 591------------------------
 /*
+ * https://leetcode.cn/problems/tag-validator/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了73.33%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %t\n", isValid(scanner.Text()))
+	}
+}

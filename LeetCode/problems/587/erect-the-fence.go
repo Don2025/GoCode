@@ -1,5 +1,15 @@
 package main
 
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
+	"os"
+	"strconv"
+)
+
+// https://leetcode.cn/problems/erect-the-fence/
+//------------------------Leetcode Problem 587------------------------
 func cross(p, q, r []int) int {
 	return (q[0]-p[0])*(r[1]-q[1]) - (q[1]-p[1])*(r[0]-q[0])
 }
@@ -45,7 +55,22 @@ func outerTrees(trees [][]int) [][]int {
 	return ans
 }
 
+//------------------------Leetcode Problem 587------------------------
 /*
+ * https://leetcode.cn/problems/erect-the-fence/
  * 执行用时：24ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：6.5MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		trees := make([][]int, n)
+		for i := range trees {
+			scanner.Scan()
+			trees[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", outerTrees(trees))
+	}
+}

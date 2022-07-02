@@ -36,7 +36,7 @@ func Test19(t *testing.T) {
 		input, expected := exam.argv19, exam.ans19
 		Printf("Example %d:\n", i+1)
 		Printf("Input: head = %v, n = %d\n", input.one, input.two)
-		output := utils.LinkListToInts(removeNthFromEnd(utils.IntsToLinkList(input.one), input.two))
+		output := utils.ListNodeToInts(removeNthFromEnd(utils.IntsToListNode(input.one), input.two))
 		Printf("Output: %v\n", output)
 		Printf("Expected: %v\n", expected)
 		if Sprintf("%v", output) == Sprintf("%v", expected) {
