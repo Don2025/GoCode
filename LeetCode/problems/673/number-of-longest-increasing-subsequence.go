@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/number-of-longest-increasing-subsequence/
+//------------------------Leetcode Problem 673------------------------
 func findNumberOfLIS(nums []int) int {
 	n := len(nums)
 	if n <= 1 {
@@ -43,24 +45,17 @@ func findNumberOfLIS(nums []int) int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(findNumberOfLIS(nums))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 673------------------------
 /*
+ * https://leetcode.cn/problems/number-of-longest-increasing-subsequence/
  * 执行用时：4ms 在所有Go提交中击败了20.90%的用户
  * 占用内存：2.5MB 在所有Go提交中击败了27.07%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", findNumberOfLIS(nums))
+	}
+}

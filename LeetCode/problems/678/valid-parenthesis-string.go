@@ -2,9 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+// https://leetcode.cn/problems/valid-parenthesis-string/
+//------------------------Leetcode Problem 678------------------------
 func checkValidString(s string) bool {
 	l, r := 0, 0
 	for _, x := range s {
@@ -31,14 +34,16 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(checkValidString(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 678------------------------
 /*
+ * https://leetcode.cn/problems/valid-parenthesis-string/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", checkValidString(scanner.Text()))
+	}
+}

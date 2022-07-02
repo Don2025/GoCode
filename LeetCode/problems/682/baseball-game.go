@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 	"strings"
 )
 
+// https://leetcode.cn/problems/baseball-game/
+//------------------------Leetcode Problem 682------------------------
 func calPoints(ops []string) int {
 	var points []int
 	var ans int
@@ -31,15 +34,17 @@ func calPoints(ops []string) int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		ops := strings.Fields(input.Text())
-		println(calPoints(ops))
-	}
-}
-
+//------------------------Leetcode Problem 682------------------------
 /*
+ * https://leetcode.cn/problems/baseball-game/
  * 执行用时：0ms 在所有Go提交中击败了95.56%的用户
  * 占用内存：2.5MB 在所有Go提交中击败了88.49%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		ops := strings.Fields(scanner.Text())
+		Printf("Output: %v\n", calPoints(ops))
+	}
+}

@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/maximum-sum-of-3-non-overlapping-subarrays/
+//------------------------Leetcode Problem 689------------------------
 func maxSumOfThreeSubarrays(nums []int, k int) []int {
 	var ans []int
 	var sum1, maxSum1, maxSum1Idx int                  //第一个滑动窗口
@@ -38,30 +40,19 @@ func maxSumOfThreeSubarrays(nums []int, k int) []int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		ans := maxSumOfThreeSubarrays(nums, k)
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 689------------------------
 /*
+ * https://leetcode.cn/problems/maximum-sum-of-3-non-overlapping-subarrays/
  * 执行用时：24ms 在所有Go提交中击败了79.31%的用户
  * 占用内存：6.2MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", maxSumOfThreeSubarrays(nums, k))
+	}
+}

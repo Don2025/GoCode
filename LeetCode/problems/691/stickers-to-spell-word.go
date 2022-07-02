@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/stickers-to-spell-word/
+//------------------------Leetcode Problem 691------------------------
 func minStickers(stickers []string, target string) int {
 	n := len(target)
 	dp := make([]int, 1<<n)
@@ -51,17 +54,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		stickers := strings.Fields(input.Text())
-		input.Scan()
-		target := input.Text()
-		println(minStickers(stickers, target))
-	}
-}
-
+//------------------------Leetcode Problem 691------------------------
 /*
+ * https://leetcode.cn/problems/stickers-to-spell-word/
  * 执行用时：96ms 在所有Go提交中击败了23.81%的用户
  * 占用内存：3.9MB 在所有Go提交中击败了95.24%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		stickers := strings.Fields(scanner.Text())
+		scanner.Scan()
+		target := scanner.Text()
+		Printf("Output: %v\n", minStickers(stickers, target))
+	}
+}

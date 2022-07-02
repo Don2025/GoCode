@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/cut-off-trees-for-golf-event/
+//------------------------Leetcode Problem 675------------------------
 func cutOffTree(forest [][]int) int {
 	dirs := []struct{ x, y int }{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
 	type pair struct{ dis, x, y int }
@@ -55,29 +58,22 @@ func cutOffTree(forest [][]int) int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		forest := make([][]int, n)
-		for i := range forest {
-			input.Scan()
-			forest[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(cutOffTree(forest))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 675------------------------
 /*
+ * https://leetcode.cn/problems/cut-off-trees-for-golf-event/
  * 执行用时：156ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：7.1MB 在所有Go提交中击败了85.71%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		forest := make([][]int, n)
+		for i := range forest {
+			scanner.Scan()
+			forest[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", cutOffTree(forest))
+	}
+}
