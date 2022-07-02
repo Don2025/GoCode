@@ -2,22 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
-/* TLE
-func findIntegers(n int) int {
-	var cnt int
-	for i := 0; i <= n; i++ {
-		if i & (i>>1) == 0 {
-			cnt++;
-		}
-	}
-	return cnt;
-}
-*/
-
+// https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones/
+//------------------------Leetcode Problem 600------------------------
 func findIntegers(n int) int {
 	dp := [31]int{1, 1}
 	for i := 2; i < 31; i++ {
@@ -38,15 +29,17 @@ func findIntegers(n int) int {
 	}
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		println(findIntegers(n))
-	}
-}
-
+//------------------------Leetcode Problem 600------------------------
 /*
+ * https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了16.67%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", findIntegers(n))
+	}
+}

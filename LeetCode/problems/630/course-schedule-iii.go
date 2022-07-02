@@ -1,9 +1,17 @@
 package main
 
 import (
+	"bufio"
 	"container/heap"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
+	"os"
 	"sort"
+	"strconv"
 )
+
+// https://leetcode.cn/problems/course-schedule-iii/
+//------------------------Leetcode Problem 630------------------------
 
 func scheduleCourse(courses [][]int) int {
 	sort.Slice(courses, func(i, j int) bool {
@@ -44,7 +52,22 @@ func (h *Heap) Pop() interface{} {
 	return x
 }
 
+//------------------------Leetcode Problem 630------------------------
 /*
+ * https://leetcode.cn/problems/course-schedule-iii/
  * 执行用时：128ms 在所有Go提交中击败了21.86%的用户
  * 占用内存：7.3MB 在所有Go提交中击败了53.77%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		courses := make([][]int, n)
+		for i := range courses {
+			scanner.Scan()
+			courses[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", scheduleCourse(courses))
+	}
+}

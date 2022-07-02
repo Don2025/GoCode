@@ -1,4 +1,7 @@
-package main
+package _22
+
+// https://leetcode.cn/problems/design-circular-queue/
+//------------------------Leetcode Problem 622------------------------
 
 type MyCircularQueue struct {
 	Nums       []int
@@ -58,8 +61,9 @@ func (this *MyCircularQueue) IsFull() bool {
  * param_5 := obj.IsEmpty();
  * param_6 := obj.IsFull();
  */
-
+//------------------------Leetcode Problem 622------------------------
 /*
+ * https://leetcode.cn/problems/design-circular-queue/
  * 执行用时：12ms 在所有Go提交中击败了79.25%的用户
  * 占用内存：6.7MB 在所有Go提交中击败了34.91%的用户
 **/

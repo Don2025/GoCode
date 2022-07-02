@@ -2,9 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+// https://leetcode.cn/problems/decode-ways-ii/
+//------------------------Leetcode Problem 639------------------------
 func numDecodings(s string) int {
 	const mod int = 1e9 + 7
 	a, b, c := 0, 1, 0
@@ -53,14 +56,16 @@ func check2digits(c0, c1 byte) int {
 	return 0
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(numDecodings(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 639------------------------
 /*
+ * https://leetcode.cn/problems/decode-ways-ii/
  * 执行用时：20ms 在所有Go提交中击败了10.00%的用户
  * 占用内存：6.2MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %d\n", numDecodings(scanner.Text()))
+	}
+}
