@@ -1,15 +1,14 @@
 package main
 
-import (
-	"github.com/emirpasic/gods/sets/hashset"
-)
+import "fmt"
 
 func main() {
-	set := hashset.New()   // empty
-	set.Add(1)             // 1
-	set.Add(2, 2, 3, 4, 5) // 3, 1, 2, 4, 5 (random order, duplicates ignored)
-	set.Clear()            // empty
-	set.Empty()            // true
-	set.Size()             // 0
-	println(gcd(10, 100))
+	s := "aqlipcrwjcrkmp]{mw]imv]oc"
+	for i, ch := range s {
+		if i&1 == 0 {
+			fmt.Printf("%c", ch+2)
+		} else {
+			fmt.Printf("%c", ch-2)
+		}
+	}
 }

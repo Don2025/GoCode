@@ -14,6 +14,7 @@ func min(a, b int) int {
 	return b
 }
 
+/*
 func min(a ...int) int {
 	val := a[0]
 	for i := 1; i < len(a); i++ {
@@ -23,7 +24,7 @@ func min(a ...int) int {
 	}
 	return val
 }
-
+*/
 func abs(n int) int {
 	if n < 0 {
 		n = -n
