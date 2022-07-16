@@ -1,4 +1,4 @@
-package main
+package _1
 
 type MovingAverage struct {
 	Queue []int
@@ -28,6 +28,6 @@ func (ma *MovingAverage) Next(val int) float64 {
  */
 
 /*
- * 执行用时：12ms 在所有Go提交中击败了95.92%的用户
+ * 执行用时：8ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：7.4MB 在所有Go提交中击败了49.66%的用户
 **/
