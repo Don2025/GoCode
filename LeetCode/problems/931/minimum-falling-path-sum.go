@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"math"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/minimum-falling-path-sum/
+//------------------------Leetcode Problem 931------------------------
 func minFallingPathSum(matrix [][]int) int {
 	n := len(matrix)
 	for i := 1; i < n; i++ {
@@ -35,20 +38,22 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		matrix := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			matrix[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(minFallingPathSum(matrix))
-	}
-}
-
+//------------------------Leetcode Problem 931------------------------
 /*
+ * https://leetcode.cn/problems/minimum-falling-path-sum/
  * 执行用时：12ms 在所有Go提交中击败了82.42%的用户
  * 占用内存：5.3MB 在所有Go提交中击败了76.56%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		matrix := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			matrix[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", minFallingPathSum(matrix))
+	}
+}

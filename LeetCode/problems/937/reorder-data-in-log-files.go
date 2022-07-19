@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"sort"
 	"strings"
 )
 
+// https://leetcode.cn/problems/reorder-data-in-log-files/
+//------------------------Leetcode Problem 937------------------------
 func reorderLogFiles(logs []string) []string {
 	sort.SliceStable(logs, func(i, j int) bool {
 		l1 := strings.Split(logs[i], " ")
@@ -30,16 +32,18 @@ func reorderLogFiles(logs []string) []string {
 	return logs
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		logs := strings.Fields(input.Text())
-		ans := reorderLogFiles(logs)
-		fmt.Printf("%v\n", ans)
-	}
-}
-
+//------------------------Leetcode Problem 937------------------------
 /*
+ * https://leetcode.cn/problems/reorder-data-in-log-files/
  * 执行用时：4ms 在所有Go提交中击败了83.33%的用户
  * 占用内存：6.4MB 在所有Go提交中击败了12.50%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		logs := strings.Fields(scanner.Text())
+		ans := reorderLogFiles(logs)
+		Printf("Output: %v\n", ans)
+	}
+}

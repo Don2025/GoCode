@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/snakes-and-ladders/
+//------------------------Leetcode Problem 909------------------------
 func snakesAndLadders(board [][]int) int {
 	arr := []int{0: -1}
 	var cnt, num int
@@ -48,29 +51,22 @@ func snakesAndLadders(board [][]int) int {
 	return -1
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		board := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			board[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(snakesAndLadders(board))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 909------------------------
 /*
+ * https://leetcode.cn/problems/snakes-and-ladders/
  * 执行用时：28ms 在所有Go提交中击败了14.29%的用户
  * 占用内存：6.7MB 在所有Go提交中击败了14.29%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		board := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			board[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", snakesAndLadders(board))
+	}
+}

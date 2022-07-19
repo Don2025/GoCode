@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/smallest-range-ii/
+//------------------------Leetcode Problem 910------------------------
 func smallestRangeII(nums []int, k int) int {
 	sort.Ints(nums)
 	n := len(nums)
@@ -34,26 +37,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		println(smallestRangeII(nums, k))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 910------------------------
 /*
+ * https://leetcode.cn/problems/smallest-range-ii/
  * 执行用时：20ms 在所有Go提交中击败了77.97%的用户
  * 占用内存：5.9MB 在所有Go提交中击败了83.05%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", smallestRangeII(nums, k))
+	}
+}

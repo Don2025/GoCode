@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/shortest-bridge/
+//------------------------Leetcode Problem 934------------------------
 func shortestBridge(grid [][]int) int {
 	n := len(grid)
 	var dfs func([][]int, int, int)
@@ -63,29 +66,22 @@ func shortestBridge(grid [][]int) int {
 	return 0
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		grid := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			grid[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(shortestBridge(grid))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 934------------------------
 /*
+ * https://leetcode.cn/problems/shortest-bridge/
  * 执行用时：32ms 在所有Go提交中击败了88.24%的用户
  * 占用内存：6.9MB 在所有Go提交中击败了83.53%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		grid := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			grid[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", shortestBridge(grid))
+	}
+}
