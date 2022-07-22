@@ -3,12 +3,14 @@ package main
 import (
 	"bufio"
 	"container/heap"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/k-closest-points-to-origin/
+//------------------------Leetcode Problem 973------------------------
 type pair struct {
 	Dist  int
 	Point []int
@@ -41,35 +43,24 @@ func kClosest(points [][]int, k int) [][]int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		points := make([][]int, n)
-		for i := range points {
-			input.Scan()
-			points[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		ans := kClosest(points, k)
-		for _, row := range ans {
-			fmt.Printf("%v ", row)
-		}
-		fmt.Println()
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 973------------------------
 /*
+ * https://leetcode.cn/problems/k-closest-points-to-origin/
  * 执行用时：132ms 在所有Go提交中击败了38.55%的用户
  * 占用内存：7.9MB 在所有Go提交中击败了69.28%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		points := make([][]int, n)
+		for i := range points {
+			scanner.Scan()
+			points[i] = utils.StringToInts(scanner.Text())
+		}
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", kClosest(points, k))
+	}
+}

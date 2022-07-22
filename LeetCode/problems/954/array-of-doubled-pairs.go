@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/array-of-doubled-pairs/
+//------------------------Leetcode Problem 954------------------------
 func canReorderDoubled(arr []int) bool {
 	m := make(map[int]int)
 	for _, x := range arr {
@@ -37,24 +39,17 @@ func abs(n int) int {
 	return n
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(canReorderDoubled(arr))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 954------------------------
 /*
+ * https://leetcode.cn/problems/array-of-doubled-pairs/
  * 执行用时：68ms 在所有Go提交中击败了90.00%的用户
  * 占用内存：7MB 在所有Go提交中击败了83.33%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		arr := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", canReorderDoubled(arr))
+	}
+}

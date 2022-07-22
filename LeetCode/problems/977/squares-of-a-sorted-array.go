@@ -2,12 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
-	"strconv"
 	"strings"
 )
 
+// https://leetcode.cn/problems/squares-of-a-sorted-array/
+//------------------------Leetcode Problem 977------------------------
 func sortedSquares(nums []int) []int {
 	ans := make([]int, len(nums))
 	l, r := 0, len(nums)-1
@@ -35,27 +36,16 @@ func pow2(n int) int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		ans := sortedSquares(nums)
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := stringArrayToIntArray(strings.Fields(scanner.Text()))
+		Printf("Output: %v\n", sortedSquares(nums))
 	}
 }
 
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 977------------------------
 /*
+ * https://leetcode.cn/problems/squares-of-a-sorted-array/
  * 执行用时：28ms 在所有Go提交中击败了80.78%的用户
  * 占用内存：6.8MB 在所有Go提交中击败了64.13%的用户
 **/

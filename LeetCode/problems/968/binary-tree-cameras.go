@@ -1,10 +1,17 @@
 package main
 
-type TreeNode struct {
-	Val         int
-	Left, Right *TreeNode
-}
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"os"
+)
 
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/binary-tree-cameras/
+//------------------------Leetcode Problem 968------------------------
 func minCameraCover(root *TreeNode) int {
 	const INF = 0x3f3f3f3f
 	var dfs func(*TreeNode) (a, b, c int)
@@ -33,7 +40,16 @@ func min(a ...int) int {
 	return val
 }
 
+//------------------------Leetcode Problem 968------------------------
 /*
+ * https://leetcode.cn/problems/binary-tree-cameras/
  * 执行用时：4ms 在所有Go提交中击败了86.41%的用户
  * 占用内存：3.9MB 在所有Go提交中击败了29.35%的用户
 **/
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		root := utils.StringToTreeNode(scanner.Text())
+		Printf("Output: %v\n", minCameraCover(root))
+	}
+}
