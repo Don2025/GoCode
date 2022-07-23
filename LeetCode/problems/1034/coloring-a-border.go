@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/coloring-a-border/
+//------------------------Leetcode Problem 1034------------------------
 func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	n, m := len(grid), len(grid[0])
 	type point struct{ x, y int }
@@ -42,38 +44,25 @@ func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	return grid
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		grid := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			grid[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		input.Scan()
-		arr := stringArrayToIntArray(strings.Fields(input.Text()))
-		row, col, color := arr[0], arr[1], arr[2]
-		ans := colorBorder(grid, row, col, color)
-		for _, a := range ans {
-			for _, x := range a {
-				fmt.Printf("%d ", x)
-			}
-			fmt.Println()
-		}
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1034------------------------
 /*
+ * https://leetcode.cn/problems/coloring-a-border/
  * 执行用时：20ms 在所有Go提交中击败了7.41%的用户
  * 占用内存：6.6MB 在所有Go提交中击败了7.41%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		grid := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			grid[i] = utils.StringToInts(scanner.Text())
+		}
+		scanner.Scan()
+		var row, col, color int
+		Sscanf(scanner.Text(), "%d %d %d", &row, &col, &color)
+		Printf("Output: %v\n", colorBorder(grid, row, col, color))
+	}
+}

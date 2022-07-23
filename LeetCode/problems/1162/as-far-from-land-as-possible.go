@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/as-far-from-land-as-possible/
+//------------------------Leetcode Problem 1162------------------------
 func maxDistance(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
 	var queue [][]int
@@ -41,29 +44,22 @@ func maxDistance(grid [][]int) int {
 	return grid[point[0]][point[1]] - 1
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		grid := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			grid[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(maxDistance(grid))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1162------------------------
 /*
+ * https://leetcode.cn/problems/as-far-from-land-as-possible/
  * 执行用时：48ms 在所有Go提交中击败了57.32%的用户
  * 占用内存：7.5MB 在所有Go提交中击败了21.95%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		grid := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			grid[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %d\n", maxDistance(grid))
+	}
+}

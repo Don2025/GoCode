@@ -2,10 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
-	"strings"
 )
 
+// https://leetcode.cn/problems/longest-common-subsequence/
+//------------------------Leetcode Problem 1143------------------------
 func longestCommonSubsequence(text1 string, text2 string) int {
 	n1, n2 := len(text1), len(text2)
 	dp := make([][]int, n1+1)
@@ -31,15 +33,18 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := strings.Fields(input.Text())
-		println(longestCommonSubsequence(arr[0], arr[1]))
-	}
-}
-
+//------------------------Leetcode Problem 1143------------------------
 /*
+ * https://leetcode.cn/problems/longest-common-subsequence/
  * 执行用时：4ms 在所有Go提交中击败了77.63%的用户
  * 占用内存：10.5MB 在所有Go提交中击败了89.56%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		var text1, text2 string
+		Sscanf(scanner.Text(), "%s %s", &text1, &text2)
+		Printf("Output: %v\n", longestCommonSubsequence(text1, text2))
+	}
+}

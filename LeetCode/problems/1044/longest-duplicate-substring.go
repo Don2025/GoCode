@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"math"
 	"math/rand"
 	"os"
 	"time"
 )
 
+// https://leetcode.cn/problems/longest-duplicate-substring/
+//------------------------Leetcode Problem 1044------------------------
 func randInt(a, b int) int {
 	return a + rand.Intn(b-a)
 }
@@ -82,9 +85,16 @@ func longestDupSubstring(s string) string {
 	return s[start : start+length]
 }
 
+//------------------------Leetcode Problem 1044------------------------
+/*
+ * https://leetcode.cn/problems/longest-duplicate-substring/
+ * 执行用时：392ms 在所有Go提交中击败了28.36%的用户
+ * 占用内存：9.9MB 在所有Go提交中击败了19.47%的用户
+**/
+
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(longestDupSubstring(input.Text()))
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", longestDupSubstring(scanner.Text()))
 	}
 }

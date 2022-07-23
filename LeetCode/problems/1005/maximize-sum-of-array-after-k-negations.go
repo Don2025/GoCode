@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/
+//------------------------Leetcode Problem 1005------------------------
 func largestSumAfterKNegations(nums []int, k int) int {
 	sort.Slice(nums, func(i, j int) bool {
 		return abs(nums[i]) > abs(nums[j])
@@ -35,17 +38,19 @@ func abs(n int) int {
 	return -n
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := utils.StringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		println(largestSumAfterKNegations(nums, k))
-	}
-}
-
+//------------------------Leetcode Problem 1005------------------------
 /*
+ * https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/
  * 执行用时：4ms 在所有Go提交中击败了94.59%的用户
  * 占用内存：2.6MB 在所有Go提交中击败了68.24%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", largestSumAfterKNegations(nums, k))
+	}
+}

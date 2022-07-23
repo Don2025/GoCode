@@ -2,13 +2,15 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"math"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/shortest-path-with-alternating-colors/
+//------------------------Leetcode Problem 1129------------------------
 func shortestAlternatingPaths(n int, redEdges [][]int, blueEdges [][]int) []int {
 	redG := make([][]int, n)
 	for _, e := range redEdges {
@@ -69,39 +71,31 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		redN, _ := strconv.Atoi(input.Text())
-		red := make([][]int, redN)
-		for i := 0; i < redN; i++ {
-			input.Scan()
-			red[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		input.Scan()
-		blueN, _ := strconv.Atoi(input.Text())
-		blue := make([][]int, blueN)
-		for i := 0; i < blueN; i++ {
-			input.Scan()
-			blue[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		ans := shortestAlternatingPaths(n, red, blue)
-		fmt.Printf("%v\n", ans)
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1129------------------------
 /*
+ * https://leetcode.cn/problems/shortest-path-with-alternating-colors/
  * 执行用时：8ms 在所有Go提交中击败了81.82%的用户
  * 占用内存：5.1MB 在所有Go提交中击败了77.27%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		redN, _ := strconv.Atoi(scanner.Text())
+		red := make([][]int, redN)
+		for i := 0; i < redN; i++ {
+			scanner.Scan()
+			red[i] = utils.StringToInts(scanner.Text())
+		}
+		scanner.Scan()
+		blueN, _ := strconv.Atoi(scanner.Text())
+		blue := make([][]int, blueN)
+		for i := 0; i < blueN; i++ {
+			scanner.Scan()
+			blue[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %v\n", shortestAlternatingPaths(n, red, blue))
+	}
+}

@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/shortest-path-in-binary-matrix/
+//------------------------Leetcode Problem 1091------------------------
 func shortestPathBinaryMatrix(grid [][]int) int {
 	if grid[0][0] == 1 {
 		return -1
@@ -37,29 +40,22 @@ func shortestPathBinaryMatrix(grid [][]int) int {
 	return -1
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		grid := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			grid[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(shortestPathBinaryMatrix(grid))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1091------------------------
 /*
+ * https://leetcode.cn/problems/shortest-path-in-binary-matrix/
  * 执行用时：36ms 在所有Go提交中击败了94.66%的用户
  * 占用内存：6.8MB 在所有Go提交中击败了87.38%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		grid := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			grid[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %d\n", shortestPathBinaryMatrix(grid))
+	}
+}

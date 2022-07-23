@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strings"
 )
 
+// https://leetcode.cn/problems/last-stone-weight-ii/
+//------------------------Leetcode Problem 1049------------------------
 func lastStoneWeightII(stones []int) int {
 	var sum int
 	for _, x := range stones {
@@ -28,15 +31,17 @@ func lastStoneWeightII(stones []int) int {
 	}
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		stones := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(lastStoneWeightII(stones))
-	}
-}
-
+//------------------------Leetcode Problem 1049------------------------
 /*
+ * https://leetcode.cn/problems/last-stone-weight-ii/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了93.90%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		stones := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", lastStoneWeightII(stones))
+	}
+}
