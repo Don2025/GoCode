@@ -1,7 +1,9 @@
-package main
+package _845
 
 import "container/heap"
 
+// https://leetcode.cn/problems/seat-reservation-manager/
+//------------------------Leetcode Problem 1845------------------------
 type hp []int
 
 func (h hp) Len() int            { return len(h) }
@@ -40,8 +42,9 @@ func (this *SeatManager) Unreserve(seatNumber int) {
  * param_1 := obj.Reserve();
  * obj.Unreserve(seatNumber);
  */
-
+//------------------------Leetcode Problem 1845------------------------
 /*
+ * https://leetcode.cn/problems/seat-reservation-manager/
  * 执行用时：404ms 在所有Go提交中击败了20.59%的用户
  * 占用内存：31.2MB 在所有Go提交中击败了73.51%的用户
 **/
