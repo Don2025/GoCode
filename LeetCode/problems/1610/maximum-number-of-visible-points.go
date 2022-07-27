@@ -2,13 +2,16 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"math"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/maximum-number-of-visible-points/
+//------------------------Leetcode Problem 1610------------------------
 func visiblePoints(points [][]int, angle int, location []int) int {
 	var sameCnt int
 	polarDegrees := []float64{}
@@ -54,33 +57,26 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		points := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			points[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		input.Scan()
-		angle, _ := strconv.Atoi(input.Text())
-		input.Scan()
-		location := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(visiblePoints(points, angle, location))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1610------------------------
 /*
+ * https://leetcode.cn/problems/maximum-number-of-visible-points/
  * 执行用时：416ms 在所有Go提交中击败了18.18%的用户
  * 占用内存：23.6MB 在所有Go提交中击败了9.09%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		points := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			points[i] = utils.StringToInts(scanner.Text())
+		}
+		scanner.Scan()
+		angle, _ := strconv.Atoi(scanner.Text())
+		scanner.Scan()
+		location := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", visiblePoints(points, angle, location))
+	}
+}

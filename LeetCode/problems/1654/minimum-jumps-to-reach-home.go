@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/minimum-jumps-to-reach-home/
+//------------------------Leetcode Problem 1654------------------------
 func minimumJumps(forbidden []int, a int, b int, x int) int {
 	type queue struct {
 		pos  int
@@ -50,26 +52,20 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		forbidden := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		arr := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(minimumJumps(forbidden, arr[0], arr[1], arr[2]))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1654------------------------
 /*
+ * https://leetcode.cn/problems/minimum-jumps-to-reach-home/
  * 执行用时：8ms 在所有Go提交中击败了84.09%的用户
  * 占用内存：6.6MB 在所有Go提交中击败了61.36%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		forbidden := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		var a, b, x int
+		Sscanf(scanner.Text(), "%d %d %d", &a, &b, &x)
+		Printf("Output: %v\n", minimumJumps(forbidden, a, b, x))
+	}
+}

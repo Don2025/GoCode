@@ -3,10 +3,13 @@ package main
 import (
 	"bufio"
 	"container/heap"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
+
+// https://leetcode.cn/problems/maximum-number-of-eaten-apples/
+//------------------------Leetcode Problem 1705------------------------
 
 type Apple struct {
 	Date int
@@ -46,26 +49,19 @@ func eatenApples(apples []int, days []int) int {
 	return cnt
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		apples := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		days := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(eatenApples(apples, days))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1705------------------------
 /*
+ * https://leetcode.cn/problems/maximum-number-of-eaten-apples/
  * 执行用时：172ms 在所有Go提交中击败了37.50%的用户
  * 占用内存：7.2MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		apples := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		days := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", eatenApples(apples, days))
+	}
+}

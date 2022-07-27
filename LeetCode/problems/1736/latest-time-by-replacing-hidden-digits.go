@@ -2,9 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 )
 
+// https://leetcode.cn/problems/latest-time-by-replacing-hidden-digits/
+//------------------------Leetcode Problem 1736------------------------
 func maximumTime(time string) string {
 	ans := []byte(time)
 	if ans[0] == '?' {
@@ -30,14 +33,16 @@ func maximumTime(time string) string {
 	return string(ans)
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		println(maximumTime(input.Text()))
-	}
-}
-
+//------------------------Leetcode Problem 1736------------------------
 /*
+ * https://leetcode.cn/problems/latest-time-by-replacing-hidden-digits/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了70.21%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		Printf("Output: %v\n", maximumTime(scanner.Text()))
+	}
+}
