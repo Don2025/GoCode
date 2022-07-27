@@ -1,4 +1,4 @@
-package main
+package _600
 
 /**
  * Your ThroneInheritance object will be instantiated and called as such:
@@ -41,7 +41,9 @@ func (this *ThroneInheritance) GetInheritanceOrder() []string {
 	return ans
 }
 
+//------------------------Leetcode Problem 1600------------------------
 /*
+ * https://leetcode.cn/problems/throne-inheritance/
  * 执行用时：576ms 在所有Go提交中击败了38.89%的用户
  * 占用内存：52.8MB 在所有Go提交中击败了88.89%的用户
 **/

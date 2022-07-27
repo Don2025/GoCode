@@ -21,8 +21,9 @@ func (s *ParkingSystem) AddCar(carType int) bool {
  * obj := Constructor(big, medium, small);
  * param_1 := obj.AddCar(carType);
  */
-
+//------------------------Leetcode Problem 1603------------------------
 /*
+ * https://leetcode.cn/problems/design-parking-system/
  * 执行用时：44ms 在所有Go提交中击败了11.32%的用户
  * 占用内存：7MB 在所有Go提交中击败了71.70%的用户
 **/

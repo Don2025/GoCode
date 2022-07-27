@@ -1,13 +1,18 @@
 package main
 
-import "math"
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"math"
+	"os"
+)
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+type TreeNode = structures.TreeNode
 
+// https://leetcode.cn/problems/even-odd-tree/
+//------------------------Leetcode Problem 1609------------------------
 func isEvenOddTree(root *TreeNode) bool {
 	var odd bool // when odd=false, means even
 	q := []*TreeNode{root}
@@ -40,6 +45,15 @@ func isEvenOddTree(root *TreeNode) bool {
 }
 
 /*
+ * https://leetcode.cn/problems/even-odd-tree/
  * 执行用时：176ms 在所有Go提交中击败了66.67%的用户
  * 占用内存：17.1MB 在所有Go提交中击败了71.43%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		root := utils.StringToTreeNode(scanner.Text())
+		Printf("Output: %v\n", isEvenOddTree(root))
+	}
+}

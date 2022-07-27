@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Don2025/GoCode/LeetCode"
+	"github.com/Don2025/GoCode/LeetCode/problems/1609"
 	"github.com/Don2025/GoCode/structures"
 	"math"
 	"strconv"
@@ -26,10 +26,10 @@ type Codec struct{}
 func Constructor() (_ Codec) { return }
 
 // Serializes a tree to a single string.
-func (Codec) serialize(root *main.TreeNode) string {
+func (Codec) serialize(root *_609.TreeNode) string {
 	var arr []string
-	var preOrder func(*main.TreeNode)
-	preOrder = func(node *main.TreeNode) {
+	var preOrder func(*_609.TreeNode)
+	preOrder = func(node *_609.TreeNode) {
 		if node == nil {
 			return
 		}
@@ -42,13 +42,13 @@ func (Codec) serialize(root *main.TreeNode) string {
 }
 
 // Deserializes your encoded data to tree.
-func (Codec) deserialize(data string) *main.TreeNode {
+func (Codec) deserialize(data string) *_609.TreeNode {
 	if data == "" {
 		return nil
 	}
 	arr := strings.Split(data, " ")
-	var dfs func(int, int) *main.TreeNode
-	dfs = func(left, right int) *main.TreeNode {
+	var dfs func(int, int) *_609.TreeNode
+	dfs = func(left, right int) *_609.TreeNode {
 		if len(arr) == 0 {
 			return nil
 		}
@@ -57,7 +57,7 @@ func (Codec) deserialize(data string) *main.TreeNode {
 			return nil
 		}
 		arr = arr[1:]
-		return &main.TreeNode{val, dfs(left, val), dfs(val, right)}
+		return &_609.TreeNode{val, dfs(left, val), dfs(val, right)}
 	}
 	return dfs(math.MinInt32, math.MaxInt32)
 }
