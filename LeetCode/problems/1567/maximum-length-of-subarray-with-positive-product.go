@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/maximum-length-of-subarray-with-positive-product/
+//------------------------Leetcode Problem 1567------------------------
 func getMaxLen(nums []int) int {
 	var pos, neg int
 	if nums[0] > 0 {
@@ -47,24 +49,17 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(getMaxLen(nums))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 1567------------------------
 /*
+ * https://leetcode.cn/problems/maximum-length-of-subarray-with-positive-product/
  * 执行用时：100ms 在所有Go提交中击败了22.06%的用户
  * 占用内存：9.9MB 在所有Go提交中击败了84.31%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", getMaxLen(nums))
+	}
+}
