@@ -1,13 +1,18 @@
 package main
 
-import "math"
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"math"
+	"os"
+)
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+type TreeNode = structures.TreeNode
 
+// https://leetcode.cn/problems/hPov7L/
+// ------------------------剑指 Offer II Problem 44------------------------
 func largestValues(root *TreeNode) []int {
 	var ans []int
 	if root == nil {
@@ -40,7 +45,17 @@ func max(a, b int) int {
 	return b
 }
 
+// ------------------------剑指 Offer II Problem 44------------------------
 /*
+ * https://leetcode.cn/problems/hPov7L/
  * 执行用时：4ms 在所有Go提交中击败了97.32%的用户
  * 占用内存：5.3MB 在所有Go提交中击败了89.26%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		root := utils.StringToTreeNode(scanner.Text())
+		Printf("Output: %v\n", largestValues(root))
+	}
+}

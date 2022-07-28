@@ -1,10 +1,11 @@
 package main
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import "github.com/Don2025/GoCode/structures"
+
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/NaqhDT/
+// ------------------------剑指 Offer II Problem 43------------------------
 
 type CBTInserter struct {
 	CBTree *TreeNode
@@ -49,8 +50,9 @@ func (cbt *CBTInserter) Get_root() *TreeNode {
  * param_1 := obj.Insert(v);
  * param_2 := obj.Get_root();
  */
-
+// ------------------------剑指 Offer II Problem 43------------------------
 /*
+ * https://leetcode.cn/problems/NaqhDT/
  * 执行用时：4ms 在所有Go提交中击败了98.51%的用户
  * 占用内存：6.6MB 在所有Go提交中击败了64.68%的用户
 **/

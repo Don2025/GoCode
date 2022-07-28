@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/0ynMMM/
+// ------------------------剑指 Offer II Problem 39------------------------
 func largestRectangleArea(heights []int) int {
 	n := len(heights)
 	left, right := make([]int, n), make([]int, n)
@@ -48,24 +50,17 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		heights := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(largestRectangleArea(heights))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------剑指 Offer II Problem 39------------------------
 /*
+ * https://leetcode.cn/problems/0ynMMM/
  * 执行用时：76ms 在所有Go提交中击败了40.47%的用户
  * 占用内存：8.3MB 在所有Go提交中击败了62.54%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		heights := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", largestRectangleArea(heights))
+	}
+}

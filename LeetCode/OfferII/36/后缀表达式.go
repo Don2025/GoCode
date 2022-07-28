@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 	"strings"
 )
 
+// https://leetcode.cn/problems/8Zf90G/
+// ------------------------剑指 Offer II Problem 36------------------------
 func evalRPN(tokens []string) int {
 	var stack []int
 	for _, token := range tokens {
@@ -32,15 +35,17 @@ func evalRPN(tokens []string) int {
 	return stack[0]
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		tokens := strings.Fields(input.Text())
-		println(evalRPN(tokens))
-	}
-}
-
+// ------------------------剑指 Offer II Problem 36------------------------
 /*
+ * https://leetcode.cn/problems/8Zf90G/
  * 执行用时：4ms 在所有Go提交中击败了84.17%的用户
  * 占用内存：4.6MB 在所有Go提交中击败了25.87%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		tokens := strings.Fields(scanner.Text())
+		Printf("Output: %v\n", evalRPN(tokens))
+	}
+}

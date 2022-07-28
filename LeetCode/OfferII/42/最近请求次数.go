@@ -1,5 +1,8 @@
 package main
 
+// https://leetcode.cn/problems/H8086Q/
+// ------------------------剑指 Offer II Problem 42------------------------
+
 type RecentCounter []int
 
 func Constructor() (_ RecentCounter) {
@@ -19,8 +22,9 @@ func (rc *RecentCounter) Ping(t int) int {
  * obj := Constructor();
  * param_1 := obj.Ping(t);
  */
-
+// ------------------------剑指 Offer II Problem 42------------------------
 /*
+ * https://leetcode.cn/problems/H8086Q/
  * 执行用时：100ms 在所有Go提交中击败了76.43%的用户
  * 占用内存：8.2MB 在所有Go提交中击败了27.14%的用户
 **/

@@ -1,11 +1,17 @@
 package main
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"os"
+)
 
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/LwUNpT/
+// ------------------------剑指 Offer II Problem 45------------------------
 func findBottomLeftValue(root *TreeNode) int {
 	var bottomLeft int
 	if root == nil {
@@ -31,7 +37,17 @@ func findBottomLeftValue(root *TreeNode) int {
 	return bottomLeft
 }
 
+// ------------------------剑指 Offer II Problem 45------------------------
 /*
+ * https://leetcode.cn/problems/LwUNpT/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：5.2MB 在所有Go提交中击败了57.88%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		root := utils.StringToTreeNode(scanner.Text())
+		Printf("Output: %d\n", findBottomLeftValue(root))
+	}
+}

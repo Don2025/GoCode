@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strings"
 )
 
+// https://leetcode.cn/problems/PLYXKQ/
+// ------------------------剑指 Offer II Problem 40------------------------
 func maximalRectangle(matrix []string) int {
 	var ans int
 	if len(matrix) == 0 {
@@ -64,15 +67,17 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		matrix := strings.Fields(input.Text())
-		println(maximalRectangle(matrix))
-	}
-}
-
+// ------------------------剑指 Offer II Problem 40------------------------
 /*
+ * https://leetcode.cn/problems/PLYXKQ/
  * 执行用时：4ms 在所有Go提交中击败了52.17%的用户
  * 占用内存：5.1MB 在所有Go提交中击败了28.26%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		matrix := strings.Fields(scanner.Text())
+		Printf("Output: %d\n", maximalRectangle(matrix))
+	}
+}
