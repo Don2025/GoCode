@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"sort"
 	"strings"
 )
 
+// https://leetcode.cn/problems/sfvd7V/
+// ------------------------剑指 Offer II Problem 33------------------------
 func groupAnagrams(strs []string) [][]string {
 	m := make(map[string][]string)
 	for _, str := range strs {
@@ -23,19 +25,17 @@ func groupAnagrams(strs []string) [][]string {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		strs := strings.Fields(input.Text())
-		ans := groupAnagrams(strs)
-		for _, row := range ans {
-			fmt.Printf("%v ", row)
-		}
-		fmt.Println()
-	}
-}
-
+// ------------------------剑指 Offer II Problem 33------------------------
 /*
+ * https://leetcode.cn/problems/sfvd7V/
  * 执行用时：20ms 在所有Go提交中击败了74.31%的用户
  * 占用内存：8.2MB 在所有Go提交中击败了70.49%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		strs := strings.Fields(scanner.Text())
+		Printf("Output: %v\n", groupAnagrams(strs))
+	}
+}

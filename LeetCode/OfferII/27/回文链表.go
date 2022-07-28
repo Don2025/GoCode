@@ -2,16 +2,16 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+type ListNode = structures.ListNode
 
+// https://leetcode.cn/problems/aMhZSa/
+// ------------------------剑指 Offer II Problem 27------------------------
 func isPalindrome(head *ListNode) bool {
 	if head == nil {
 		return true
@@ -48,34 +48,17 @@ func reverseList(head *ListNode) *ListNode {
 	return prev
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		head := intArrayToLinkList(stringArrayToIntArray(strings.Fields(input.Text())))
-		println(isPalindrome(head))
-	}
-}
-
-func intArrayToLinkList(arr []int) *ListNode {
-	var head *ListNode = new(ListNode)
-	p := head
-	for _, x := range arr {
-		p.Next = &ListNode{Val: x}
-		p = p.Next
-	}
-	return head.Next
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------剑指 Offer II Problem 27------------------------
 /*
+ * https://leetcode.cn/problems/aMhZSa/
  * 执行用时：108ms 在所有Go提交中击败了99.05%的用户
  * 占用内存：10MB 在所有Go提交中击败了70.89%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		head := utils.StringToListNode(scanner.Text())
+		Printf("Output: %v\n", isPalindrome(head))
+	}
+}

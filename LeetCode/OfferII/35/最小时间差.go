@@ -2,12 +2,15 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
 )
 
+// https://leetcode.cn/problems/569nqc/
+// ------------------------剑指 Offer II Problem 35------------------------
 func findMinDifference(timePoints []string) int {
 	ans := 24 * 60
 	if len(timePoints) > ans {
@@ -35,15 +38,17 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		timePoints := strings.Fields(input.Text())
-		println(findMinDifference(timePoints))
-	}
-}
-
+// ------------------------剑指 Offer II Problem 35------------------------
 /*
+ * https://leetcode.cn/problems/569nqc/
  * 执行用时：4ms 在所有Go提交中击败了94.96%的用户
  * 占用内存：4.2MB 在所有Go提交中击败了52.16%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		timePoints := strings.Fields(scanner.Text())
+		Printf("Output: %v\n", findMinDifference(timePoints))
+	}
+}

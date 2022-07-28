@@ -48,8 +48,9 @@ func (rs *RandomizedSet) GetRandom() int {
  * param_2 := obj.Remove(val);
  * param_3 := obj.GetRandom();
  */
-
+// ------------------------剑指 Offer II Problem 30------------------------
 /*
+ * https://leetcode.cn/problems/FortPu/
  * 执行用时：132ms 在所有Go提交中击败了93.17%的用户
  * 占用内存：55.4MB 在所有Go提交中击败了36.10%的用户
 **/
