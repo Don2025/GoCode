@@ -2,10 +2,9 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func fraction(cont []int) []int {
@@ -19,23 +18,11 @@ func fraction(cont []int) []int {
 }
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		ans := fraction(stringArrayToIntArray(strings.Fields(input.Text())))
-		for _, x := range ans {
-			fmt.Printf("%d ", x)
-		}
-		fmt.Println()
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		cont := utils.StringToInts(scanner.Text())
+		Printf("Output: %d\n", fraction(cont)[0])
 	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
 }
 
 /*
