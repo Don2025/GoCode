@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/
+// ------------------------剑指 Offer I Problem 43------------------------
 func countDigitOne(n int) int {
 	digitNum, ans := 1, 0
 	low, high, cur := 0, n/10, n%10
@@ -24,15 +27,17 @@ func countDigitOne(n int) int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		println(countDigitOne(n))
-	}
-}
-
+// ------------------------剑指 Offer I Problem 43------------------------
 /*
+ * https://leetcode.cn/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.8MB 在所有Go提交中击败了58.31%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", countDigitOne(n))
+	}
+}

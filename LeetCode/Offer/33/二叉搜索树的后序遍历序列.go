@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"math"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/
+// ------------------------剑指 Offer I Problem 33------------------------
 func verifyPostorder(postorder []int) bool {
 	var stack []int
 	root := math.MaxInt32
@@ -24,24 +26,17 @@ func verifyPostorder(postorder []int) bool {
 	return true
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		postorder := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(verifyPostorder(postorder))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------剑指 Offer I Problem 33------------------------
 /*
+ * https://leetcode.cn/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：1.9MB 在所有Go提交中击败了26.74%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		postorder := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", verifyPostorder(postorder))
+	}
+}

@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/chou-shu-lcof/
+// ------------------------剑指 Offer I Problem 49------------------------
 func nthUglyNumber(n int) int {
 	dp := make([]int, n+1)
 	dp[1] = 1
@@ -36,15 +39,17 @@ func min(a ...int) int {
 	return val
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		println(nthUglyNumber(n))
-	}
-}
-
+// ------------------------剑指 Offer I Problem 49------------------------
 /*
+ * https://leetcode.cn/problems/chou-shu-lcof/
  * 执行用时：4ms 在所有Go提交中击败了48.24%的用户
  * 占用内存：4MB 在所有Go提交中击败了67.90%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", nthUglyNumber(n))
+	}
+}

@@ -3,11 +3,14 @@ package main
 import (
 	"bufio"
 	"container/heap"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
+
+// https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof/
+// ------------------------剑指 Offer I Problem 40------------------------
 
 type IntHeap []int
 
@@ -34,27 +37,19 @@ func getLeastNumbers(arr []int, k int) []int {
 	return h
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		ans := getLeastNumbers(arr, k)
-		fmt.Printf("%v\n", ans)
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------剑指 Offer I Problem 40------------------------
 /*
+ * https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof/
  * 执行用时：20ms 在所有Go提交中击败了93.64%的用户
  * 占用内存：6.5MB 在所有Go提交中击败了35.95%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		arr := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("%v\n", getLeastNumbers(arr, k))
+	}
+}

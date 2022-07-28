@@ -1,6 +1,9 @@
-package main
+package _1
 
 import "container/heap"
+
+// https://leetcode.cn/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
+// ------------------------剑指 Offer I Problem 41------------------------
 
 type IntHeap []int
 
@@ -52,8 +55,9 @@ func (this *MedianFinder) FindMedian() float64 {
  * obj.AddNum(num);
  * param_2 := obj.FindMedian();
  */
-
+// ------------------------剑指 Offer I Problem 41------------------------
 /*
+ * https://leetcode.cn/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
  * 执行用时：72ms 在所有Go提交中击败了98.52%的用户
  * 占用内存：12.4MB 在所有Go提交中击败了88.50%的用户
 **/
