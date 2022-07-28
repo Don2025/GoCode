@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
+// ------------------------剑指 Offer I Problem 57-II------------------------
 func findContinuousSequence(target int) [][]int {
 	var ans [][]int
 	var sum int
@@ -27,19 +29,17 @@ func findContinuousSequence(target int) [][]int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		ans := findContinuousSequence(n)
-		for _, x := range ans {
-			fmt.Printf("%v ", x)
-		}
-		fmt.Println()
-	}
-}
-
+// ------------------------剑指 Offer I Problem 57-II------------------------
 /*
+ * https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2MB 在所有Go提交中击败了90.62%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", findContinuousSequence(n))
+	}
+}

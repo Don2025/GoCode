@@ -1,10 +1,17 @@
 package main
 
-type TreeNode struct {
-	Val         int
-	Left, Right *TreeNode
-}
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"os"
+)
 
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/
+// ------------------------剑指 Offer I Problem 55-II------------------------
 func isBalanced(root *TreeNode) bool {
 	if root == nil {
 		return true
@@ -33,7 +40,16 @@ func max(a, b int) int {
 	return b
 }
 
+// ------------------------剑指 Offer I Problem 55-II------------------------
 /*
+ * https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/
  * 执行用时：4ms 在所有Go提交中击败了93.87%的用户
  * 占用内存：5.6MB 在所有Go提交中击败了37.53%的用户
 **/
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		root := utils.StringToTreeNode(scanner.Text())
+		Printf("%v\n", isBalanced(root))
+	}
+}

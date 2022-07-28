@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
-	"strconv"
-	"strings"
 )
+
+// https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
+// ------------------------剑指 Offer I Problem 51------------------------
 
 type BIT struct {
 	N    int
@@ -48,24 +51,17 @@ func reversePairs(nums []int) int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(reversePairs(nums))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------剑指 Offer I Problem 51------------------------
 /*
+ * https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
  * 执行用时：136ms 在所有Go提交中击败了14.56%的用户
  * 占用内存：7.5MB 在所有Go提交中击败了78.44%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %v\n", reversePairs(nums))
+	}
+}
