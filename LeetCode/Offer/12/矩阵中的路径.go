@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/
+// ------------------------剑指 Offer I Problem 12------------------------
 func exist(board [][]byte, word string) bool {
 	row, col := len(board), len(board[0])
 	var dfs func(int, int, int) bool
@@ -31,22 +34,24 @@ func exist(board [][]byte, word string) bool {
 	return false
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		board := make([][]byte, n)
-		for i := range board {
-			input.Scan()
-			board[i] = []byte(input.Text())
-		}
-		input.Scan()
-		word := input.Text()
-		println(exist(board, word))
-	}
-}
-
+// ------------------------剑指 Offer I Problem 12------------------------
 /*
+ * https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/
  * 执行用时：4ms 在所有Go提交中击败了89.97%的用户
  * 占用内存：3.1MB 在所有Go提交中击败了99.40%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		board := make([][]byte, n)
+		for i := range board {
+			scanner.Scan()
+			board[i] = []byte(scanner.Text())
+		}
+		scanner.Scan()
+		word := scanner.Text()
+		Printf("Output: %v\n", exist(board, word))
+	}
+}

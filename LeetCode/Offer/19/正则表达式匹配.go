@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
+// ------------------------剑指 Offer I Problem 19------------------------
 func isMatch(s string, p string) bool {
 	ns, np := len(s), len(p)
 	matches := func(i, j int) bool {
@@ -37,15 +39,17 @@ func isMatch(s string, p string) bool {
 	return dp[ns][np]
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := strings.Fields(input.Text())
-		println(isMatch(arr[0], arr[1]))
-	}
-}
-
+// ------------------------剑指 Offer I Problem 19------------------------
 /*
+ * https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.2MB 在所有Go提交中击败了78.71%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		arr := strings.Fields(scanner.Text())
+		println(isMatch(arr[0], arr[1]))
+	}
+}

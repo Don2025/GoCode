@@ -2,6 +2,9 @@ package main
 
 import "math"
 
+// https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
+// ------------------------剑指 Offer I Problem 30------------------------
+
 type MinStack struct {
 	stack, minStack []int
 }
@@ -47,8 +50,9 @@ func min(x, y int) int {
  * param_3 := obj.Top();
  * param_4 := obj.Min();
  */
-
+// ------------------------剑指 Offer I Problem 30------------------------
 /*
+ * https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
  * 执行用时：16ms 在所有Go提交中击败了59.8%的用户
  * 占用内存：7.8MB 在所有Go提交中击败了61.8%的用户
 **/

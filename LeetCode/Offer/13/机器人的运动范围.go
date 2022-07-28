@@ -2,11 +2,12 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
+// ------------------------剑指 Offer I Problem 13------------------------
 func movingCount(m int, n int, k int) int {
 	visited := make([][]bool, m)
 	for i := range visited {
@@ -23,18 +24,18 @@ func movingCount(m int, n int, k int) int {
 	return dfs(0, 0)
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		arr := strings.Fields(input.Text())
-		m, _ := strconv.Atoi(arr[0])
-		n, _ := strconv.Atoi(arr[1])
-		k, _ := strconv.Atoi(arr[2])
-		println(movingCount(m, n, k))
-	}
-}
-
+// ------------------------剑指 Offer I Problem 13------------------------
 /*
+ * https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.4MB 在所有Go提交中击败了58.75%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		var m, n, k int
+		Sscanf(scanner.Text(), "%d %d %d", &m, &n, &k)
+		Printf("Output: %d\n", movingCount(m, n, k))
+	}
+}
