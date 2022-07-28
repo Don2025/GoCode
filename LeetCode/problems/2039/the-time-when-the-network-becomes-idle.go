@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/the-time-when-the-network-becomes-idle/
+//------------------------Leetcode Problem 2039------------------------
 func networkBecomesIdle(edges [][]int, patience []int) int {
 	n := len(patience)
 	g := make([][]int, n)
@@ -43,31 +46,23 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		edges := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			edges[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		input.Scan()
-		patience := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(networkBecomesIdle(edges, patience))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
 /*
+ * https://leetcode.cn/problems/the-time-when-the-network-becomes-idle/
  * 执行用时：284ms 在所有Go提交中击败了88.89%的用户
  * 占用内存：28.8MB 在所有Go提交中击败了44.44%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		edges := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			edges[i] = utils.StringToInts(scanner.Text())
+		}
+		scanner.Scan()
+		patience := utils.StringToInts(scanner.Text())
+		Printf("Output: %d\n", networkBecomesIdle(edges, patience))
+	}
+}

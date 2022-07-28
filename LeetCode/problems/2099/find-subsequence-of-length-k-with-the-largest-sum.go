@@ -9,6 +9,8 @@ import (
 	"strconv"
 )
 
+// https://leetcode.cn/problems/find-subsequence-of-length-k-with-the-largest-sum/
+// ------------------------Leetcode Problem 2099------------------------
 func maxSubsequence(nums []int, k int) []int {
 	a := make([]int, len(nums))
 	for i, x := range nums {
@@ -28,6 +30,13 @@ func maxSubsequence(nums []int, k int) []int {
 	}
 	return ans
 }
+
+//------------------------Leetcode Problem 2099------------------------
+/*
+ * https://leetcode.cn/problems/find-subsequence-of-length-k-with-the-largest-sum/
+ * 执行用时：4ms 在所有Go提交中击败了95.17%的用户
+ * 占用内存：3.6MB 在所有Go提交中击败了39.08%的用户
+**/
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)

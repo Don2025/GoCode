@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/detonate-the-maximum-bombs/
+//------------------------Leetcode Problem 2101------------------------
 func maximumDetonation(bombs [][]int) int {
 	n := len(bombs)
 	g := make([][]int, n)
@@ -56,29 +59,22 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		n, _ := strconv.Atoi(input.Text())
-		bombs := make([][]int, n)
-		for i := 0; i < n; i++ {
-			input.Scan()
-			bombs[i] = stringArrayToIntArray(strings.Fields(input.Text()))
-		}
-		println(maximumDetonation(bombs))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------Leetcode Problem 2101------------------------
 /*
+ * https://leetcode.cn/problems/detonate-the-maximum-bombs/
  * 执行用时：24ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：6.9MB 在所有Go提交中击败了100.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		n, _ := strconv.Atoi(scanner.Text())
+		bombs := make([][]int, n)
+		for i := 0; i < n; i++ {
+			scanner.Scan()
+			bombs[i] = utils.StringToInts(scanner.Text())
+		}
+		Printf("Output: %d\n", maximumDetonation(bombs))
+	}
+}

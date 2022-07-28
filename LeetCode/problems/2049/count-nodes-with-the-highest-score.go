@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// https://leetcode.cn/problems/count-nodes-with-the-highest-score/
+//------------------------Leetcode Problem 2049------------------------
 func countHighestScoreNodes(parents []int) int {
 	n := len(parents)
 	children := make([][]int, n)
@@ -38,6 +40,13 @@ func countHighestScoreNodes(parents []int) int {
 	return ans
 }
 
+//------------------------Leetcode Problem 2049------------------------
+/*
+ * https://leetcode.cn/problems/count-nodes-with-the-highest-score/
+ * 执行用时：136ms 在所有Go提交中击败了82.76%的用户
+ * 占用内存：29.7MB 在所有Go提交中击败了17.24%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -45,8 +54,3 @@ func main() {
 		Printf("Output: %v\n", countHighestScoreNodes(parents))
 	}
 }
-
-/*
- * 执行用时：136ms 在所有Go提交中击败了82.76%的用户
- * 占用内存：29.7MB 在所有Go提交中击败了17.24%的用户
-**/

@@ -1,4 +1,4 @@
-package main
+package _043
 
 type Bank []int64
 
@@ -38,8 +38,9 @@ func (b Bank) Withdraw(account int, money int64) bool {
  * param_2 := obj.Deposit(account,money);
  * param_3 := obj.Withdraw(account,money);
  */
-
+//------------------------Leetcode Problem 2043------------------------
 /*
+ * https://leetcode.cn/problems/simple-bank-system/
  * 执行用时：332ms 在所有Go提交中击败了76.09%的用户
  * 占用内存：41MB 在所有Go提交中击败了10.87%的用户
 **/

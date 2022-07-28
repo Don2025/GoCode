@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
 	"os"
 	"strconv"
 )
 
+// https://leetcode.cn/problems/maximize-the-confusion-of-an-exam/
+//------------------------Leetcode Problem 2024------------------------
 func maxConsecutiveAnswers(answerKey string, k int) int {
 	m := make(map[byte]int)
 	var ans int
@@ -34,17 +37,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		s := input.Text()
-		input.Scan()
-		k, _ := strconv.Atoi(input.Text())
-		println(maxConsecutiveAnswers(s, k))
-	}
-}
-
+//------------------------Leetcode Problem 2024------------------------
 /*
+ * https://leetcode.cn/problems/maximize-the-confusion-of-an-exam/
  * 执行用时：44ms 在所有Go提交中击败了6.45%的用户
  * 占用内存：5.1MB 在所有Go提交中击败了29.03%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		s := scanner.Text()
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", maxConsecutiveAnswers(s, k))
+	}
+}
