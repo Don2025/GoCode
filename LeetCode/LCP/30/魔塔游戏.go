@@ -3,11 +3,13 @@ package main
 import (
 	"bufio"
 	"container/heap"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/p0NxJO/
+// ------------------------LeetCode Cup Problem 30------------------------
 type hp []int
 
 func (h hp) Len() int            { return len(h) }
@@ -41,24 +43,17 @@ func magicTower(nums []int) int {
 	return -1
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		nums := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(magicTower(nums))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------LeetCode Cup Problem 30------------------------
 /*
+ * https://leetcode.cn/problems/p0NxJO/
  * 执行用时：128ms 在所有Go提交中击败了26.92%的用户
  * 占用内存：8.4MB 在所有Go提交中击败了46.15%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		nums := utils.StringToInts(scanner.Text())
+		Printf("Output: %d\n", magicTower(nums))
+	}
+}

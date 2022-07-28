@@ -1,11 +1,11 @@
 package main
 
-func rightSideView(root *TreeNode) []int {
+func rightSideView(root *_4.TreeNode) []int {
 	var ans []int
 	if root == nil {
 		return ans
 	}
-	queue := []*TreeNode{root}
+	queue := []*_4.TreeNode{root}
 	for len(queue) > 0 {
 		size := len(queue)
 		for i := 0; i < size; i++ {

@@ -1,10 +1,12 @@
 package main
 
-func pathSum(root *TreeNode, targetSum int) int {
+import "github.com/Don2025/GoCode/LeetCode/LCP/34"
+
+func pathSum(root *_4.TreeNode, targetSum int) int {
 	var ans int
 	preSum := map[int]int{0: 1}
-	var dfs func(*TreeNode, int)
-	dfs = func(node *TreeNode, cur int) {
+	var dfs func(*_4.TreeNode, int)
+	dfs = func(node *_4.TreeNode, cur int) {
 		if node == nil {
 			return
 		}

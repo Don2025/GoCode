@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/o8SXZn/
+// ------------------------LeetCode Cup Problem 33------------------------
 func storeWater(bucket []int, vat []int) int {
 	m, n := 0, len(bucket)
 	for i := 0; i < n; i++ {
@@ -40,26 +42,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		bucket := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		vat := stringArrayToIntArray(strings.Fields(input.Text()))
-		println(storeWater(bucket, vat))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------LeetCode Cup Problem 33------------------------
 /*
+ * https://leetcode.cn/problems/o8SXZn/
  * 执行用时：60ms 在所有Go提交中击败了45.16%的用户
  * 占用内存：2.1MB 在所有Go提交中击败了77.42%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		bucket := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		vat := utils.StringToInts(scanner.Text())
+		Printf("Output: %d\n", storeWater(bucket, vat))
+	}
+}

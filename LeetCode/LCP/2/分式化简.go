@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// https://leetcode.cn/problems/deep-dark-fraction/
+// ------------------------LeetCode Cup Problem 2------------------------
 func fraction(cont []int) []int {
 	up := 1
 	down := cont[len(cont)-1]
@@ -17,6 +19,13 @@ func fraction(cont []int) []int {
 	return []int{down, up}
 }
 
+// ------------------------LeetCode Cup Problem 2------------------------
+/*
+ * https://leetcode.cn/problems/deep-dark-fraction/
+ * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
+ * 占用内存：1.9MB 在所有Go提交中击败了68.75%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -24,8 +33,3 @@ func main() {
 		Printf("Output: %d\n", fraction(cont)[0])
 	}
 }
-
-/*
- * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
- * 占用内存：1.9MB 在所有Go提交中击败了68.75%的用户
-**/

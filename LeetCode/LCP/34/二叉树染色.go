@@ -1,10 +1,18 @@
 package main
 
-type TreeNode struct {
-	Val         int
-	Left, Right *TreeNode
-}
+import (
+	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/structures"
+	"github.com/Don2025/GoCode/utils"
+	"os"
+	"strconv"
+)
 
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/er-cha-shu-ran-se-UGC/
+// ------------------------LeetCode Cup Problem 34------------------------
 func maxValue(root *TreeNode, k int) int {
 	var dp func(*TreeNode) []int
 	dp = func(node *TreeNode) []int {
@@ -42,7 +50,19 @@ func max(a, b int) int {
 	return b
 }
 
+// ------------------------LeetCode Cup Problem 34------------------------
 /*
+ * https://leetcode.cn/problems/er-cha-shu-ran-se-UGC/
  * 执行用时：68ms 在所有Go提交中击败了50.00%的用户
  * 占用内存：9.7MB 在所有Go提交中击败了60.00%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		root := utils.StringToTreeNode(scanner.Text())
+		scanner.Scan()
+		k, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %d\n", maxValue(root, k))
+	}
+}
