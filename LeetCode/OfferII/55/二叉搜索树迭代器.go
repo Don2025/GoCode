@@ -1,10 +1,11 @@
 package main
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import "github.com/Don2025/GoCode/structures"
+
+type TreeNode = structures.TreeNode
+
+// https://leetcode.cn/problems/kTOapQ/
+//-------------------------剑指 Offer II Problem 55------------------------
 
 type BSTIterator struct {
 	Arr []int
@@ -40,8 +41,9 @@ func (it *BSTIterator) HasNext() bool {
  * param_1 := obj.Next();
  * param_2 := obj.HasNext();
  */
-
+//-------------------------剑指 Offer II Problem 55------------------------
 /*
+ * https://leetcode.cn/problems/kTOapQ/
  * 执行用时：20ms 在所有Go提交中击败了88.24%的用户
  * 占用内存：9.7MB 在所有Go提交中击败了35.83%的用户
 **/

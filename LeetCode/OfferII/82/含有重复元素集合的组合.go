@@ -2,13 +2,15 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/4sjJUc/
+// ------------------------剑指 Offer II Problem 82------------------------
 func combinationSum2(candidates []int, target int) [][]int {
 	sort.Ints(candidates)
 	var freq [][2]int
@@ -49,21 +51,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		candidates := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		target, _ := strconv.Atoi(input.Text())
-		ans := combinationSum(candidates, target)
-		for _, row := range ans {
-			fmt.Printf("%v ", row)
-		}
-		fmt.Println()
-	}
-}
-
+// ------------------------剑指 Offer II Problem 82------------------------
 /*
+ * https://leetcode.cn/problems/4sjJUc/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.4MB 在所有Go提交中击败了61.54%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		candidates := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		target, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", combinationSum2(candidates, target))
+	}
+}

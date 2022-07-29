@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/Ygoe9J/
+// ------------------------剑指 Offer II Problem 81------------------------
 func combinationSum(candidates []int, target int) [][]int {
 	var ans [][]int
 	var arr []int
@@ -31,30 +33,19 @@ func combinationSum(candidates []int, target int) [][]int {
 	return ans
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		candidates := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		target, _ := strconv.Atoi(input.Text())
-		ans := combinationSum(candidates, target)
-		for _, row := range ans {
-			fmt.Printf("%v ", row)
-		}
-		fmt.Println()
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+// ------------------------剑指 Offer II Problem 81------------------------
 /*
+ * https://leetcode.cn/problems/Ygoe9J/
  * 执行用时：0ms 在所有Go提交中击败了100.00%的用户
  * 占用内存：2.6MB 在所有Go提交中击败了59.60%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		candidates := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		target, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", combinationSum(candidates, target))
+	}
+}

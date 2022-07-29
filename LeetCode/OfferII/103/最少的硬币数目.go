@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
 	"strconv"
-	"strings"
 )
 
+// https://leetcode.cn/problems/gaM7Ch/
+//------------------------剑指 Offer II Problem 103------------------------
 func coinChange(coins []int, amount int) int {
 	maxVal := amount + 1
 	dp := make([]int, maxVal)
@@ -33,26 +36,19 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		coins := stringArrayToIntArray(strings.Fields(input.Text()))
-		input.Scan()
-		amount, _ := strconv.Atoi(input.Text())
-		println(coinChange(coins, amount))
-	}
-}
-
-func stringArrayToIntArray(strings []string) []int {
-	var arr []int
-	for _, x := range strings {
-		n, _ := strconv.Atoi(x)
-		arr = append(arr, n)
-	}
-	return arr
-}
-
+//------------------------剑指 Offer II Problem 103------------------------
 /*
+ * https://leetcode.cn/problems/gaM7Ch/
  * 执行用时：8ms 在所有Go提交中击败了93.02%的用户
  * 占用内存：6.3MB 在所有Go提交中击败了58.53%的用户
 **/
+
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		coins := utils.StringToInts(scanner.Text())
+		scanner.Scan()
+		amount, _ := strconv.Atoi(scanner.Text())
+		Printf("Output: %v\n", coinChange(coins, amount))
+	}
+}

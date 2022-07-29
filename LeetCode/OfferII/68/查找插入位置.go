@@ -8,6 +8,8 @@ import (
 	"strconv"
 )
 
+// https://leetcode.cn/problems/N6YdxV/
+//-------------------------剑指 Offer II Problem 68------------------------
 func searchInsert(nums []int, target int) int {
 	ans := len(nums)
 	l, r := 0, len(nums)-1
@@ -23,6 +25,13 @@ func searchInsert(nums []int, target int) int {
 	return ans
 }
 
+//-------------------------剑指 Offer II Problem 68------------------------
+/*
+ * https://leetcode.cn/problems/N6YdxV/
+ * 执行用时：4ms 在所有Go提交中击败了25.65%的用户
+ * 占用内存：2.8MB 在所有Go提交中击败了57.62%的用户
+**/
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -32,8 +41,3 @@ func main() {
 		Printf("Output: %v\n", searchInsert(nums, target))
 	}
 }
-
-/*
- * 执行用时：4ms 在所有Go提交中击败了25.65%的用户
- * 占用内存：2.8MB 在所有Go提交中击败了57.62%的用户
-**/
