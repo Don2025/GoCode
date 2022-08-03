@@ -1,4 +1,4 @@
-package _22
+package main
 
 // https://leetcode.cn/problems/design-circular-queue/
 //------------------------Leetcode Problem 622------------------------

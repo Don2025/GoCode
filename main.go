@@ -1,14 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/Don2025/GoCode/templates"
+)
 
 func main() {
-	s := "aqlipcrwjcrkmp]{mw]imv]oc"
-	for i, ch := range s {
-		if i&1 == 0 {
-			fmt.Printf("%c", ch+2)
-		} else {
-			fmt.Printf("%c", ch-2)
-		}
-	}
+	nums := templates.PrimeSieve(1024)
+	fmt.Printf("Output: %v\n", nums)
+	fmt.Printf("512: %v\n", nums[512])
 }
