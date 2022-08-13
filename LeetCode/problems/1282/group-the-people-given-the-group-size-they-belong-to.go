@@ -3,8 +3,8 @@ package main
 import (
 	"bufio"
 	. "fmt"
+	"github.com/Don2025/GoCode/utils"
 	"os"
-	"strings"
 )
 
 // https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/
@@ -33,7 +33,7 @@ func groupThePeople(groupSizes []int) [][]int {
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
-		groupSizes := strings.Fields(scanner.Text())
+		groupSizes := utils.StringToInts(scanner.Text())
 		Printf("Output: %v\n", groupThePeople(groupSizes))
 	}
 }
