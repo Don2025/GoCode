@@ -81,11 +81,13 @@ func TreeToLevelOrderStrings(root *TreeNode) []string {
 				ans = append(ans, "null")
 			} else {
 				ans = append(ans, strconv.Itoa(node.Val))
-				queue = append(queue, node.Left, node.Right)
+				if node.Left != nil || node.Right != nil {
+					queue = append(queue, node.Left, node.Right)
+				}
 			}
 		}
 		queue = queue[size:]
 	}
 	level--
-	return ans[:1<<level-1]
+	return ans
 }
