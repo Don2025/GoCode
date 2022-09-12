@@ -5,10 +5,23 @@ import (
 	. "fmt"
 	"github.com/Don2025/GoCode/utils"
 	"os"
+	"sort"
 )
 
 // https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x/
 //------------------------Leetcode Problem 1608------------------------
+func specialArray(nums []int) int {
+	sort.Sort(sort.Reverse(sort.IntSlice(nums)))
+	n := len(nums)
+	for i := 1; i <= n; i++ {
+		if nums[i-1] >= i && (i == n || nums[i] < i) {
+			return i
+		}
+	}
+	return -1
+}
+
+/*
 func specialArray(nums []int) int {
 	l, r := 1, 100
 	for l <= r {
@@ -29,7 +42,7 @@ func specialArray(nums []int) int {
 	}
 	return -1
 }
-
+*/
 //------------------------Leetcode Problem 1608------------------------
 /*
  * https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x/
