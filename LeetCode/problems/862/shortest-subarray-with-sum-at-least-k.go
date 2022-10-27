@@ -43,7 +43,7 @@ func min(a, b int) int {
 
 //------------------------Leetcode Problem 862------------------------
 /*
- *https://leetcode.cn/problems/shortest-subarray-with-sum-at-least-k/
+ * https://leetcode.cn/problems/shortest-subarray-with-sum-at-least-k/
  * 执行用时：136ms 在所有Go提交中击败了65.91%的用户
  * 占用内存：9.4MB 在所有Go提交中击败了39.77%的用户
 **/
