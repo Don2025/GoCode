@@ -1,12 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"github.com/Don2025/GoCode/templates"
+	"log"
+	"net/http"
 )
 
+func viewHandler(writer http.ResponseWriter, request *http.Request) {
+	message := []byte("Hello, World!")
+	_, err := writer.Write(message)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 func main() {
-	nums := templates.PrimeSieve(1024)
-	fmt.Printf("Output: %v\n", nums)
-	fmt.Printf("512: %v\n", nums[512])
+	http.HandleFunc("/hello", viewHandler)
+	log.Fatal(http.ListenAndServe("localhost:8080", nil))
 }
